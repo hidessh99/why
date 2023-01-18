@@ -1,3 +1,3 @@
 # why
 
-bash -c "$(wget -qO- https://raw.githubusercontent.com/whxxyu/why/main/xray)"
+bash -c "$(wget -qO- s.id/whyxray)"
