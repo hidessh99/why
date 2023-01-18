@@ -30,7 +30,7 @@ secs_to_human() {
 echo -e "${WB}Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds${NC}"
 }
 start=$(date +%s)
-GIHUB_REPO=raw.githubusercontent.com/dugong-lewat/dugong-lewat/other
+GIHUB_REPO=https://raw.githubusercontent.com/whxxyu/conf
 apt update -y
 apt full-upgrade -y
 apt dist-upgrade -y
@@ -92,9 +92,9 @@ bash acme.sh --issue -d $domain --server letsencrypt --keylength ec-256 --fullch
 clear
 echo -e "${GB}[ INFO ]${NC} ${YB}Setup Nginx & Xray Conf${NC}"
 echo "UQ3w2q98BItd3DPgyctdoJw4cqQFmY59ppiDQdqMKbw=" > /usr/local/etc/xray/serverpsk
-wget -q -O /usr/local/etc/xray/config.json https://raw.githubusercontent.com/dugong-lewat/dugong-lewat/other/config.json
-wget -q -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/dugong-lewat/dugong-lewat/other/nginx.conf
-wget -q -O /etc/nginx/conf.d/xray.conf https://raw.githubusercontent.com/dugong-lewat/dugong-lewat/other/xray.conf
+wget -q -O /usr/local/etc/xray/config.json https://raw.githubusercontent.com/whxxyu/conf/main/config.json
+wget -q -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/whxxyu/conf/main/nginx.conf
+wget -q -O /etc/nginx/conf.d/xray.conf https://raw.githubusercontent.com/whxxyu/conf/main/xray.conf
 systemctl restart nginx
 systemctl restart xray
 echo -e "${GB}[ INFO ]${NC} ${YB}Setup Done${NC}"
@@ -151,82 +151,82 @@ net.ipv4.tcp_max_orphans = 32768
 net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 cd /usr/bin
 echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Main Menu${NC}"
-wget -q -O menu "https://is.gd/g4r84R"
-wget -q -O vmess "https://is.gd/POryQg"
-wget -q -O vless "https://is.gd/xMh4kv"
-wget -q -O trojan "https://is.gd/f9pZcW"
-wget -q -O shadowsocks "https://is.gd/1Dz0tB"
-wget -q -O shadowsocks2022 "https://is.gd/8kPafk"
-wget -q -O socks "https://is.gd/4ym6fT"
-wget -q -O allxray "https://is.gd/mngf1y"
+wget -q -O menu "https://raw.githubusercontent.com/whxxyu/conf"
+wget -q -O vmess "https://raw.githubusercontent.com/whxxyu/why/main/menu/vmess.sh"
+wget -q -O vless "https://raw.githubusercontent.com/whxxyu/why/main/menu/vless.sh"
+wget -q -O trojan "https://raw.githubusercontent.com/whxxyu/why/main/menu/trojan.sh"
+wget -q -O shadowsocks "https://raw.githubusercontent.com/whxxyu/why/main/menu/shadowsocks.sh"
+wget -q -O shadowsocks2022 "https://raw.githubusercontent.com/whxxyu/why/main/menu/shadowsocks2022.sh"
+wget -q -O socks "https://raw.githubusercontent.com/whxxyu/why/main/menu/socks.sh"
+wget -q -O allxray "https://raw.githubusercontent.com/whxxyu/why/main/menu/allxray.sh"
 sleep 0.5
 echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Menu Vmess${NC}"
-wget -q -O add-vmess "https://is.gd/GXSlVT"
-wget -q -O del-vmess "https://is.gd/4xLaAj"
-wget -q -O extend-vmess "https://is.gd/tL8efq"
-wget -q -O trialvmess "https://is.gd/D5zrOw"
-wget -q -O cek-vmess "https://is.gd/ehK3Eu"
+wget -q -O add-vmess "https://raw.githubusercontent.com/whxxyu/why/main/vmess/add-vmess.sh"
+wget -q -O del-vmess "https://raw.githubusercontent.com/whxxyu/why/main/vmess/del-vmess.sh"
+wget -q -O extend-vmess "https://raw.githubusercontent.com/whxxyu/why/main/vmess/extend-vmess.sh"
+wget -q -O trialvmess "https://raw.githubusercontent.com/whxxyu/why/main/vmess/trialvmess.sh"
+wget -q -O cek-vmess "https://raw.githubusercontent.com/whxxyu/why/main/vmess/cek-vmess.sh" 
 sleep 0.5
 echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Menu Vless${NC}"
-wget -q -O add-vless "https://is.gd/fvySZA"
-wget -q -O del-vless "https://is.gd/Fc1RCO"
-wget -q -O extend-vless "https://is.gd/iQ3EYO"
-wget -q -O trialvless "https://is.gd/k0ZvU0"
-wget -q -O cek-vless "https://is.gd/ZB1eMO"
+wget -q -O add-vless "https://raw.githubusercontent.com/whxxyu/why/main/vless/add-vless.sh"
+wget -q -O del-vless "https://raw.githubusercontent.com/whxxyu/why/main/vless/del-vless.sh"
+wget -q -O extend-vless "https://raw.githubusercontent.com/whxxyu/why/main/vless/extend-vless.sh"
+wget -q -O trialvless "https://raw.githubusercontent.com/whxxyu/why/main/vless/trialvless.sh"
+wget -q -O cek-vless "https://raw.githubusercontent.com/whxxyu/why/main/vless/cek-vless.sh"
 sleep 0.5
 echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Menu Trojan${NC}"
-wget -q -O add-trojan "https://is.gd/0DKHZm"
-wget -q -O del-trojan "https://is.gd/Rxnw0J"
-wget -q -O extend-trojan "https://is.gd/d0WGjO"
-wget -q -O trialtrojan "https://is.gd/mZUtmc"
-wget -q -O cek-trojan "https://is.gd/rn8HLl"
+wget -q -O add-trojan "https://raw.githubusercontent.com/whxxyu/why/main/trojan/add-trojan.sh"
+wget -q -O del-trojan "https://raw.githubusercontent.com/whxxyu/why/main/trojan/del-trojan.sh"
+wget -q -O extend-trojan "https://raw.githubusercontent.com/whxxyu/why/main/trojan/extend-trojan.sh"
+wget -q -O trialtrojan "https://raw.githubusercontent.com/whxxyu/why/main/trojan/trialtrojan.sh"
+wget -q -O cek-trojan "https://raw.githubusercontent.com/whxxyu/why/main/trojan/cek-trojan.sh"
 sleep 0.5
 echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Menu Shadowsocks${NC}"
-wget -q -O add-ss "https://is.gd/NeRCxN"
-wget -q -O del-ss "https://is.gd/YWa6Jk"
-wget -q -O extend-ss "https://is.gd/01N6gG"
-wget -q -O trialss "https://is.gd/8jWMIr"
-wget -q -O cek-ss "https://is.gd/8LYTH6"
+wget -q -O add-ss "https://github.com/whxxyu/why/blob/main/shadowsocks/add-ss.sh"
+wget -q -O del-ss "https://github.com/whxxyu/why/blob/main/shadowsocks/del-ss.sh"
+wget -q -O extend-ss "https://github.com/whxxyu/why/blob/main/shadowsocks/extend-ss.sh"
+wget -q -O trialss "https://github.com/whxxyu/why/blob/main/shadowsocks/trial-ss.sh"
+wget -q -O cek-ss "https://github.com/whxxyu/why/blob/main/shadowsocks/cek-ss.sh"
 sleep 0.5
 echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Menu Shadowsocks 2022${NC}"
-wget -q -O add-ss2022 "https://is.gd/AxOwsm"
-wget -q -O del-ss2022 "https://is.gd/35bb0L"
-wget -q -O extend-ss2022 "https://is.gd/jH8Mb0"
-wget -q -O trialss2022 "https://is.gd/6IRoGp"
-wget -q -O cek-ss2022 "https://is.gd/Bk62I8"
+wget -q -O add-ss2022 "https://raw.githubusercontent.com/whxxyu/why/main/shadowsocks2022/add-ss2022.sh"
+wget -q -O del-ss2022 "https://raw.githubusercontent.com/whxxyu/why/main/shadowsocks2022/del-ss2022.sh"
+wget -q -O extend-ss2022 "https://raw.githubusercontent.com/whxxyu/why/main/shadowsocks2022/extend-ss2022.sh"
+wget -q -O trialss2022 "https://raw.githubusercontent.com/whxxyu/why/main/shadowsocks2022/trialss2022.sh"
+wget -q -O cek-ss2022 "https://raw.githubusercontent.com/whxxyu/why/main/shadowsocks2022/cek-ss2022.sh"
 sleep 0.5
 echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Menu Socks5${NC}"
-wget -q -O add-socks "https://is.gd/wqfHyG"
-wget -q -O del-socks "https://is.gd/jTDu9J"
-wget -q -O extend-socks "https://is.gd/WOLshy"
-wget -q -O trialsocks "https://is.gd/Txue8k"
-wget -q -O cek-socks "https://is.gd/9iFu8D"
+wget -q -O add-socks "https://raw.githubusercontent.com/whxxyu/why/main/socks/add-socks.sh"
+wget -q -O del-socks "https://raw.githubusercontent.com/whxxyu/why/main/socks/del-socks.sh"
+wget -q -O extend-socks "https://raw.githubusercontent.com/whxxyu/why/main/socks/extend-socks.sh"
+wget -q -O trialsocks "https://raw.githubusercontent.com/whxxyu/why/main/socks/trialsocks.sh"
+wget -q -O cek-socks "https://raw.githubusercontent.com/whxxyu/why/main/socks/cek-socks.sh"
 sleep 0.5
 echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Menu All Xray${NC}"
-wget -q -O add-xray "https://is.gd/Z7UF0L"
-wget -q -O del-xray "https://is.gd/gJAaV1"
-wget -q -O extend-xray "https://is.gd/1TFJGd"
-wget -q -O trialxray "https://is.gd/Q3lVnb"
-wget -q -O cek-xray "https://is.gd/NXBkoM"
+wget -q -O add-xray "https://raw.githubusercontent.com/whxxyu/why/main/allxray/add-xray.sh"
+wget -q -O del-xray "https://raw.githubusercontent.com/whxxyu/why/main/allxray/del-xray.sh"
+wget -q -O extend-xray "https://raw.githubusercontent.com/whxxyu/why/main/allxray/extend-xray.sh"
+wget -q -O trialxray "https://raw.githubusercontent.com/whxxyu/why/main/allxray/trialxray.sh"
+wget -q -O cek-xray "https://raw.githubusercontent.com/whxxyu/why/main/allxray/cek-xray.sh"
 sleep 0.5
 echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Menu Log${NC}"
-wget -q -O log-create "https://is.gd/PQUZxM"
-wget -q -O log-vmess "https://is.gd/fdf0kT"
-wget -q -O log-vless "https://is.gd/q4K40U"
-wget -q -O log-trojan "https://is.gd/y9WOpD"
-wget -q -O log-ss "https://is.gd/EgLiSK"
-wget -q -O log-ss2022 "https://is.gd/XsRD4Q"
-wget -q -O log-socks "https://is.gd/tfc8G1"
-wget -q -O log-allxray "https://is.gd/NM1LYo"
+wget -q -O log-create "https://raw.githubusercontent.com/whxxyu/why/main/log/log-create.sh"
+wget -q -O log-vmess "https://raw.githubusercontent.com/whxxyu/why/main/log/log-vmess.sh"
+wget -q -O log-vless "https://raw.githubusercontent.com/whxxyu/why/main/log/log-vless.sh"
+wget -q -O log-trojan "https://raw.githubusercontent.com/whxxyu/why/main/log/log-trojan.sh"
+wget -q -O log-ss "https://raw.githubusercontent.com/whxxyu/why/main/log/log-ss.sh"
+wget -q -O log-ss2022 "https://raw.githubusercontent.com/whxxyu/why/main/log/log-ss2022.sh"
+wget -q -O log-socks "https://raw.githubusercontent.com/whxxyu/why/main/log/log-socks.sh"
+wget -q -O log-allxray "https://raw.githubusercontent.com/whxxyu/why/main/log/log-allxray.sh"
 sleep 0.5
 echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Other Menu${NC}"
-wget -q -O xp "https://is.gd/BT6edK"
-wget -q -O dns "https://is.gd/keEZNQ"
-wget -q -O certxray "https://is.gd/3KMw7y"
-wget -q -O xraymod "https://is.gd/DA5m5F"
-wget -q -O xrayofficial "https://is.gd/kRu8Oz"
-wget -q -O about "https://is.gd/iNocqp"
-wget -q -O clear-log "https://is.gd/iJ0jly"
+wget -q -O xp "https://raw.githubusercontent.com/whxxyu/why/main/other/xp.sh"
+wget -q -O dns "https://raw.githubusercontent.com/whxxyu/why/main/other/dns.sh"
+wget -q -O certxray "https://raw.githubusercontent.com/whxxyu/why/main/other/certxray.sh"
+wget -q -O xraymod "https://raw.githubusercontent.com/whxxyu/why/main/other/xraymod.sh"
+wget -q -O xrayofficial "https://raw.githubusercontent.com/whxxyu/why/main/other/xrayofficial.sh"
+wget -q -O about "https://raw.githubusercontent.com/whxxyu/why/main/other/about.sh"
+wget -q -O clear-log "https://raw.githubusercontent.com/whxxyu/why/main/other/clear-log.sh"
 echo -e "${GB}[ INFO ]${NC} ${YB}Download All Menu Done${NC}"
 sleep 2
 chmod +x add-vmess
