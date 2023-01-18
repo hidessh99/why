@@ -136,7 +136,7 @@ net.ipv4.tcp_timestamps = 0
 net.ipv4.tcp_max_orphans = 32768
 net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 cd /usr/bin
-eecho -e "${GB}[ INFO ]${NC} ${YB}Downloading Main Menu${NC}"
+echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Main Menu${NC}"
 wget -q -O menu "https://raw.githubusercontent.com/whxxyu/conf"
 wget -q -O vmess "https://raw.githubusercontent.com/whxxyu/why/main/menu/vmess.sh"
 wget -q -O vless "https://raw.githubusercontent.com/whxxyu/why/main/menu/vless.sh"
