@@ -58,6 +58,8 @@ clear
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
 sudo apt-get install speedtest
 clear
+sudo apt-get install -y lolcat
+clear
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 apt install nginx -y
 rm /var/www/html/*.html
