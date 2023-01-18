@@ -30,7 +30,7 @@ secs_to_human() {
 echo -e "${WB}Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds${NC}"
 }
 start=$(date +%s)
-GIHUB_REPO=https://raw.githubusercontent.com/whxxyu/conf
+GIHUB_REPO=raw.githubusercontent.com/whxxyu/conf
 apt update -y
 apt full-upgrade -y
 apt dist-upgrade -y
@@ -53,12 +53,12 @@ sleep 0.5
 wget -q -O /backup/xray.mod.backup "https://github.com/dharak36/Xray-core/releases/download/v1.0.0/xray.linux.64bit"
 echo -e "${GB}[ INFO ]${NC} ${YB}Download Xray-core done${NC}"
 sleep 1
+sudo apt-get install -y lolcat
+clear
 cd
 clear
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
 sudo apt-get install speedtest
-clear
-sudo apt-get install -y lolcat
 clear
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 apt install nginx -y
