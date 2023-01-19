@@ -9,7 +9,7 @@ CB='\e[35;1m'
 WB='\e[37;1m'
 clear
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "               ${WB}----- [ Trojan Menu ] -----${NC}              "
+echo -e "               ${WB}----- [ Trojan Menu ] -----${NC}              " | lolcat -a -d 10
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e ""
 echo -e " ${MB}[1]${NC} ${YB}Create Account Trojan${NC} "
