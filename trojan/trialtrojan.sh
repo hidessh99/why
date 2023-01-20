@@ -12,10 +12,12 @@ sed -i '/#trojan-grpc$/a\#& '"$user $exp"'\
 trojanlink1="trojan://$uuid@$domain:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
 trojanlink2="trojan://${uuid}@$domain:80?path=/trojan&security=none&host=$domain&type=ws#$user"
 trojanlink3="trojan://${uuid}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user"
+ISP=$(cat /usr/local/etc/xray/org)
+CITY=$(cat /usr/local/etc/xray/city)
 cat > /var/www/html/trojan/trojan-$user.txt << END
-----------------------------------------------------
-       ----- [ Trial Xray / Trojan ] -----                 
-----------------------------------------------------
+____________________________________________________
+        _____ [ Trial Xray / Trojan ] _____                 
+____________________________________________________
 Remarks       : Trojan-$user
 Host/IP       : $domain
 Wildcard      : (bug.com).$domain
@@ -31,13 +33,12 @@ Network       : Websocket, gRPC
 Path          : /trojan
 ServiceName   : trojan-grpc
 Alpn          : h2, http/1.1
-----------------------------------------------------
+____________________________________________________
 Expired On    : $exp
-----------------------------------------------------
-
-----------------------------------------------------
+____________________________________________________
+____________________________________________________
         ----- [ Trojan WS (CDN) TLS ] -----
-----------------------------------------------------
+____________________________________________________
 - name: Trojan-$user
   server: $domain
   port: 443
@@ -51,11 +52,10 @@ Expired On    : $exp
     path: /trojan
     headers:
       Host: $domain
-----------------------------------------------------
-
-----------------------------------------------------
+____________________________________________________
+____________________________________________________
          ----- [ Trojan gRPC (CDN) ] -----
-----------------------------------------------------
+____________________________________________________
 - name: Trojan-$user
   server: $domain
   port: 443
@@ -67,20 +67,17 @@ Expired On    : $exp
   udp: true
   grpc-opts:
     grpc-service-name: "trojan-grpc"
-----------------------------------------------------
-
-----------------------------------------------------
+____________________________________________________
+____________________________________________________
         ----- [ Link Xray / Trojan ] -----
-----------------------------------------------------
+____________________________________________________
 Link TLS  : trojan://$uuid@$domain:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user
-----------------------------------------------------
+____________________________________________________
 Link NTLS : trojan://${uuid}@$domain:80?path=/trojan&security=none&host=$domain&type=ws#$user
-----------------------------------------------------
+____________________________________________________
 Link gRPC : trojan://${uuid}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user
-----------------------------------------------------
+____________________________________________________
 END
-ISP=$(cat /usr/local/etc/xray/org)
-CITY=$(cat /usr/local/etc/xray/city)
 systemctl restart xray
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-trojan-$user.txt
