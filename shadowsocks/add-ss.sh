@@ -65,6 +65,7 @@ ServiceName   : shadowsocks-grpc
 Alpn          : h2, http/1.1
 ____________________________________________________
 Expired On    : $exp
+____________________________________________________
 
 
 ____________________________________________________
@@ -136,10 +137,11 @@ echo -e "Network       : Websocket, gRPC" | tee -a /user/log-ss-$user.txt
 echo -e "Path          : /shadowsocks" | tee -a /user/log-ss-$user.txt
 echo -e "ServiceName   : shadowsocks-grpc" | tee -a /user/log-ss-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-ss-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
 echo -e "Format Clash  : http://$domain:8000/shadowsocks/shadowsocks-$user.txt" | tee -a /user/log-ss-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
 echo -e "Expired On    : $exp" | tee -a /user/log-ss-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
