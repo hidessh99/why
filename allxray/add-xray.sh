@@ -160,7 +160,7 @@ ____________________________________________________
                 Vmess, Vless, Trojan 
         Shadowsocks, Shadowsocks 2022, Socks5
 ____________________________________________________
-Remarks          : Xray-$user
+Remarks          : $user
 Domain           : $domain
 Wildcard         : (bug.com).$domain
 ISP              : $ISP
