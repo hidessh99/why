@@ -10,18 +10,18 @@ WB='\e[37;1m'
 clear
 domain=$(cat /usr/local/etc/xray/domain)
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "               ${WB}Add Shadowsocks Account${NC}              "
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 read -rp "User: " -e user
 CLIENT_EXISTS=$(grep -w $user /usr/local/etc/xray/config.json | wc -l)
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "               ${WB}Add Shadowsocks Account${NC}              "
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "${YB}A client with the specified name was already created, please choose another name.${NC}"
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 read -n 1 -s -r -p "Press any key to back on menu"
 add-ss2022
 fi
@@ -41,10 +41,13 @@ ss2022link1="ss://${ss2022_base64}@$domain:443?path=/shadowsocks2022&security=tl
 ss2022link2="ss://${ss2022_base64}@$domain:80?path=/shadowsocks2022&security=none&host=${domain}&type=ws#${user}"
 ss2022link3="ss://${ss2022_base64}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=shadowsocks2022-grpc&sni=$domain#${user}"
 rm -rf /tmp/log
+ISP=$(cat /usr/local/etc/xray/org)
+CITY=$(cat /usr/local/etc/xray/city)
 cat > /var/www/html/shadowsocks2022/shadowsocks2022-$user.txt << END
-----------------------------------------------------
-         ----- [ Shadowsocks 2022 ] -----
-----------------------------------------------------
+____________________________________________________
+
+         _____ [ Shadowsocks 2022 ] _____
+____________________________________________________
 Remarks       : SS2022-$user
 Domain        : $domain
 Wildcard      : (bug.com).$domain
@@ -61,13 +64,13 @@ Network       : Websocket, gRPC
 Path          : /shadowsocks2022
 ServiceName   : shadowsocks2022-grpc
 Alpn          : h2, http/1.1
-----------------------------------------------------
+____________________________________________________
 Expired On    : $exp
-----------------------------------------------------
 
-----------------------------------------------------
+
+____________________________________________________
     ----- [ Shadowsocks 2022 WS (CDN) TLS ] -----
-----------------------------------------------------
+____________________________________________________
 - name: SS2022-$user
   type: ss
   server: $domain
@@ -82,11 +85,11 @@ Expired On    : $exp
   host: $domain
   path: "/shadowsocks2022"
   mux: true
-----------------------------------------------------
 
-----------------------------------------------------
+
+____________________________________________________
       ----- [ Shadowsocks 2022 WS (CDN) ] -----
-----------------------------------------------------
+____________________________________________________
 - name: SS2022-$user
   type: ss
   server: $domain
@@ -101,20 +104,18 @@ Expired On    : $exp
   host: $domain
   path: "/shadowsocks2022"
   mux: true
-----------------------------------------------------
 
-----------------------------------------------------
+
+____________________________________________________
        ----- [ Link Shadowsocks 2022 ] -----
-----------------------------------------------------
+____________________________________________________
 Link TLS : ss://${ss2022_base64}@$domain:443?path=/shadowsocks2022&security=tls&host=${domain}&type=ws&sni=${domain}#${user}
-----------------------------------------------------
+____________________________________________________
 Link NTLS : ss://${ss2022_base64}@$domain:80?path=/shadowsocks2022&security=none&host=${domain}&type=ws#${user}
-----------------------------------------------------
+____________________________________________________
 Link gRPC : ss://${ss2022_base64}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=shadowsocks2022-grpc&sni=$domain#${user}
-----------------------------------------------------
+____________________________________________________
 END
-ISP=$(cat /usr/local/etc/xray/org)
-CITY=$(cat /usr/local/etc/xray/city)
 systemctl restart xray
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
@@ -136,16 +137,18 @@ echo -e "Network       : Websocket, gRPC" | tee -a /user/log-ss2022-$user.txt
 echo -e "Path          : /shadowsocks2022" | tee -a /user/log-ss2022-$user.txt
 echo -e "ServiceName   : shadowsocks2022-grpc" | tee -a /user/log-ss2022-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-ss2022-$user.txt
+echo -e "Format Clash  : http://$domain:8000/shadowsocks2022/shadowsocks2022-$user.txt" | tee -a /user/log-ss2022-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
+echo -e "Expired On    : $exp" | tee -a /user/log-ss2022-$user.txt
+echo " " | tee -a /user/log-ss2022-$user.txt
+echo " " | tee -a /user/log-ss2022-$user.txt
+echo " " | tee -a /user/log-ss2022-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
 echo -e "Link TLS      : $ss2022link1" | tee -a /user/log-ss2022-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
 echo -e "Link NTLS     : $ss2022link2" | tee -a /user/log-ss2022-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
 echo -e "Link gRPC     : $ss2022link3" | tee -a /user/log-ss2022-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
-echo -e "Format Clash  : http://$domain:8000/shadowsocks2022/shadowsocks2022-$user.txt" | tee -a /user/log-ss2022-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
-echo -e "Expired On    : $exp" | tee -a /user/log-ss2022-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
 echo " " | tee -a /user/log-ss2022-$user.txt
 echo " " | tee -a /user/log-ss2022-$user.txt
