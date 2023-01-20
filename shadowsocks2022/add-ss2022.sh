@@ -48,7 +48,7 @@ ____________________________________________________
 
          _____ [ Shadowsocks 2022 ] _____
 ____________________________________________________
-Remarks       : SS2022-$user
+Remarks       : $user
 Domain        : $domain
 Wildcard      : (bug.com).$domain
 ISP           : $ISP
