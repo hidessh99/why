@@ -17,9 +17,10 @@ sslink2="ss://${ss_base64}@$domain:80?path=/shadowsocks&security=none&host=${dom
 sslink3="ss://${ss_base64}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=shadowsocks-grpc&sni=$domain#${user}"
 rm -rf /tmp/log
 cat > /var/www/html/shadowsocks/shadowsocks-$user.txt << END
-----------------------------------------------------
-         ----- [ Trial Shadowsocks ] -----
-----------------------------------------------------
+____________________________________________________
+
+         _____ [ Trial Shadowsocks ] _____
+____________________________________________________
 Remarks       : SS-$user
 Domain        : $domain
 Wildcard      : (bug.com).$domain
@@ -36,13 +37,13 @@ Network       : Websocket, gRPC
 Path          : /shadowsocks
 ServiceName   : shadowsocks-grpc
 Alpn          : h2, http/1.1
-----------------------------------------------------
+____________________________________________________
 Expired On    : $exp
-----------------------------------------------------
 
-----------------------------------------------------
-      ----- [ Shadowsocks WS (CDN) TLS ] -----
-----------------------------------------------------
+
+____________________________________________________
+      _____ [ Shadowsocks WS (CDN) TLS ] _____
+____________________________________________________
 - name: SS-$user
   type: ss
   server: $domain
@@ -57,11 +58,11 @@ Expired On    : $exp
   host: $domain
   path: "/shadowsocks"
   mux: true
-----------------------------------------------------
-
-----------------------------------------------------
-        ----- [ Shadowsocks WS (CDN) ] -----
----------------------------------------------------- 
+  
+  
+____________________________________________________
+        _____ [ Shadowsocks WS (CDN) ] _____
+____________________________________________________ 
 - name: SS-$user
   type: ss
   server: $domain
@@ -76,17 +77,17 @@ Expired On    : $exp
   host: $domain
   path: "/shadowsocks"
   mux: true
-----------------------------------------------------
-
-----------------------------------------------------
-         ----- [ Link Shadowsocks ] -----
-----------------------------------------------------
+  
+  
+____________________________________________________
+          _____ [ Link Shadowsocks ] _____
+____________________________________________________
 Link TLS : ss://${ss_base64}@$domain:443?path=/shadowsocks&security=tls&host=${domain}&type=ws&sni=${domain}#${user}
-----------------------------------------------------
+____________________________________________________
 Link NTLS : ss://${ss_base64}@$domain:80?path=/shadowsocks&security=none&host=${domain}&type=ws#${user}
-----------------------------------------------------
+____________________________________________________
 Link gRPC : ss://${ss_base64}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=shadowsocks-grpc&sni=$domain#${user}
-----------------------------------------------------
+____________________________________________________
 END
 ISP=$(cat /usr/local/etc/xray/org)
 CITY=$(cat /usr/local/etc/xray/city)
@@ -111,16 +112,18 @@ echo -e "Network       : Websocket, gRPC" | tee -a /user/log-ss-$user.txt
 echo -e "Path          : /shadowsocks" | tee -a /user/log-ss-$user.txt
 echo -e "ServiceName   : shadowsocks-grpc" | tee -a /user/log-ss-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-ss-$user.txt
+echo -e "Format Clash  : http://$domain:8000/shadowsocks/shadowsocks-$user.txt" | tee -a /user/log-ss-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
+echo -e "Expired On    : $exp" | tee -a /user/log-ss-$user.txt
+echo " " | tee -a /user/log-ss-$user.txt
+echo " " | tee -a /user/log-ss-$user.txt
+echo " " | tee -a /user/log-ss-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
 echo -e "Link TLS      : $sslink1" | tee -a /user/log-ss-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
 echo -e "Link NTLS     : $sslink2" | tee -a /user/log-ss-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
 echo -e "Link gRPC     : $sslink3" | tee -a /user/log-ss-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
-echo -e "Format Clash  : http://$domain:8000/shadowsocks/shadowsocks-$user.txt" | tee -a /user/log-ss-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
-echo -e "Expired On    : $exp" | tee -a /user/log-ss-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
 echo " " | tee -a /user/log-ss-$user.txt
 echo " " | tee -a /user/log-ss-$user.txt
