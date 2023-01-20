@@ -10,9 +10,9 @@ WB='\e[37;1m'
 clear
 echo -n >/tmp/other.txt
 data=($(cat /usr/local/etc/xray/config.json | grep '^#÷' | cut -d ' ' -f 2 | sort | uniq))
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "              ${WB}Socks5 User Login Account${NC}             "
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 for akun in "${data[@]}"; do
 if [[ -z "$akun" ]]; then
 akun="Tidak Ada"
@@ -36,7 +36,7 @@ else
 jum2=$(cat /tmp/ipvmess.txt | nl)
 echo "user : $akun"
 echo "$jum2"
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 fi
 rm -rf /tmp/ipvmess.txt
 done
