@@ -10,18 +10,18 @@ WB='\e[37;1m'
 clear
 domain=$(cat /usr/local/etc/xray/domain)
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "                  ${WB}Add Trojan Account${NC}                "
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 read -rp "User: " -e user
 user_EXISTS=$(grep -w $user /usr/local/etc/xray/config.json | wc -l)
 if [[ ${user_EXISTS} == '1' ]]; then
 clear
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "                  ${WB}Add Trojan Account${NC}                "
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "${YB}A client with the specified name was already created, please choose another name.${NC}"
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 read -n 1 -s -r -p "Press any key to back on menu"
 add-trojan
 fi
@@ -36,6 +36,8 @@ sed -i '/#trojan-grpc$/a\#& '"$user $exp"'\
 trojanlink1="trojan://$uuid@$domain:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
 trojanlink2="trojan://${uuid}@$domain:80?path=/trojan&security=none&host=$domain&type=ws#$user"
 trojanlink3="trojan://${uuid}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user"
+ISP=$(cat /usr/local/etc/xray/org)
+CITY=$(cat /usr/local/etc/xray/city)
 cat > /var/www/html/trojan/trojan-$user.txt << END
 ----------------------------------------------------
            ----- [ Xray / Trojan ] -----                 
@@ -103,8 +105,6 @@ Link NTLS : trojan://${uuid}@$domain:80?path=/trojan&security=none&host=$domain&
 Link gRPC : trojan://${uuid}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user
 ----------------------------------------------------
 END
-ISP=$(cat /usr/local/etc/xray/org)
-CITY=$(cat /usr/local/etc/xray/city)
 systemctl restart xray
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-trojan-$user.txt
