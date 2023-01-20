@@ -40,6 +40,7 @@ ISP=$(cat /usr/local/etc/xray/org)
 CITY=$(cat /usr/local/etc/xray/city)
 cat > /var/www/html/trojan/trojan-$user.txt << END
 ____________________________________________________
+
            _____ [ Xray / Trojan ] _____                 
 ____________________________________________________
 Remarks       : Trojan-$user
@@ -59,10 +60,10 @@ ServiceName   : trojan-grpc
 Alpn          : h2, http/1.1
 ____________________________________________________
 Expired On    : $exp
-____________________________________________________
+
 
 ____________________________________________________
-        ----- [ Trojan WS (CDN) TLS ] -----
+        _____ [ Trojan WS (CDN) TLS ] _____
 ____________________________________________________
 - name: Trojan-$user
   server: $domain
@@ -77,10 +78,10 @@ ____________________________________________________
     path: /trojan
     headers:
       Host: $domain
-____________________________________________________
+
 
 ____________________________________________________
-         ----- [ Trojan gRPC (CDN) ] -----
+         _____ [ Trojan gRPC (CDN) ] _____
 ____________________________________________________
 - name: Trojan-$user
   server: $domain
@@ -93,10 +94,10 @@ ____________________________________________________
   udp: true
   grpc-opts:
     grpc-service-name: "trojan-grpc"
-____________________________________________________
+
 
 ____________________________________________________
-        ----- [ Link Xray / Trojan ] -----
+        _____ [ Link Xray / Trojan ] _____
 ____________________________________________________
 Link TLS  : trojan://$uuid@$domain:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user
 ____________________________________________________
@@ -125,16 +126,18 @@ echo -e "Network       : Websocket, gRPC" | tee -a /user/log-trojan-$user.txt
 echo -e "Path          : /trojan" | tee -a /user/log-trojan-$user.txt
 echo -e "ServiceName   : trojan-grpc" | tee -a /user/log-trojan-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-trojan-$user.txt
+echo -e "Format Clash  : http://$domain:8000/trojan/trojan-$user.txt" | tee -a /user/log-trojan-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-trojan-$user.txt
+echo -e "Expired On    : $exp" | tee -a /user/log-trojan-$user.txt
+echo " " | tee -a /user/log-trojan-$user.txt
+echo " " | tee -a /user/log-trojan-$user.txt
+echo " " | tee -a /user/log-trojan-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-trojan-$user.txt
 echo -e "Link TLS      : $trojanlink1" | tee -a /user/log-trojan-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-trojan-$user.txt
 echo -e "Link NTLS     : $trojanlink2" | tee -a /user/log-trojan-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-trojan-$user.txt
 echo -e "Link gRPC     : $trojanlink3" | tee -a /user/log-trojan-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-trojan-$user.txt
-echo -e "Format Clash  : http://$domain:8000/trojan/trojan-$user.txt" | tee -a /user/log-trojan-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-trojan-$user.txt
-echo -e "Expired On    : $exp" | tee -a /user/log-trojan-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-trojan-$user.txt
 echo " " | tee -a /user/log-trojan-$user.txt
 echo " " | tee -a /user/log-trojan-$user.txt
