@@ -19,7 +19,7 @@ ____________________________________________________
 
         _____ [ Trial Xray / Trojan ] _____                 
 ____________________________________________________
-Remarks       : Trojan-$user
+Remarks       : $user
 Host/IP       : $domain
 Wildcard      : (bug.com).$domain
 ISP           : $ISP
