@@ -10,18 +10,18 @@ WB='\e[37;1m'
 clear
 domain=$(cat /usr/local/etc/xray/domain)
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "                 ${WB}Add Vmess Account${NC}                  "
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 read -rp "User: " -e user
 CLIENT_EXISTS=$(grep -w $user /usr/local/etc/xray/config.json | wc -l)
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "                 ${WB}Add Vmess Account${NC}                  "
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "${YB}A client with the specified name was already created, please choose another name.${NC}"
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 read -n 1 -s -r -p "Press any key to back on menu"
 add-vmess
 fi
@@ -81,10 +81,13 @@ EOF`
 vmesslink1="vmess://$(echo $vlink1 | base64 -w 0)"
 vmesslink2="vmess://$(echo $vlink2 | base64 -w 0)"
 vmesslink3="vmess://$(echo $vlink3 | base64 -w 0)"
+ISP=$(cat /usr/local/etc/xray/org)
+CITY=$(cat /usr/local/etc/xray/city)
 cat > /var/www/html/vmess/vmess-$user.txt << END
-----------------------------------------------------
-           ----- [ Xray / Vmess ] -----                 
-----------------------------------------------------
+____________________________________________________
+
+           _____ [ Xray / Vmess ] _____                 
+____________________________________________________
 Remarks       : $user
 Domain        : $domain
 Wildcard      : (bug.com).$domain
@@ -102,13 +105,13 @@ Network       : Websocket
 Path          : /(multipath) = ubah suka-suka
 ServiceName   : vmess-grpc
 Alpn          : h2, http/1.1
-----------------------------------------------------
+____________________________________________________
 Expired On    : $exp
-----------------------------------------------------
 
-----------------------------------------------------
-        ----- [ Vmess WS (CDN) TLS ] -----                 
-----------------------------------------------------
+
+____________________________________________________
+        _____ [ Vmess WS (CDN) TLS ] _____                 
+____________________________________________________
 - name: Vmess-$user
   type: vmess
   server: $domain
@@ -125,11 +128,11 @@ Expired On    : $exp
     path: /vmess
     headers:
       Host: $domain
-----------------------------------------------------
 
-----------------------------------------------------
-           ----- [ Vmess WS (CDN) ] -----
-----------------------------------------------------
+
+____________________________________________________
+           _____ [ Vmess WS (CDN) ] _____
+____________________________________________________
 - name: Vmess-$user
   type: vmess
   server: $domain
@@ -146,11 +149,11 @@ Expired On    : $exp
     path: /vmess
     headers:
       Host: $domain
-----------------------------------------------------
 
-----------------------------------------------------
-          ----- [ Vmess gRPC (CDN) ] -----
-----------------------------------------------------
+
+____________________________________________________
+          _____ [ Vmess gRPC (CDN) ] _____
+____________________________________________________
 - name: Vmess-$user
   server: $domain
   port: 443
@@ -164,20 +167,18 @@ Expired On    : $exp
   skip-cert-verify: true
   grpc-opts:
     grpc-service-name: "vmess-grpc"
-----------------------------------------------------
 
-----------------------------------------------------
-             ----- [ Link Vmess ] -----
-----------------------------------------------------
+
+____________________________________________________
+             _____ [ Link Vmess ] _____
+____________________________________________________
 Link TLS  : vmess://$(echo $vlink1 | base64 -w 0)
-----------------------------------------------------
+____________________________________________________
 Link NTLS : vmess://$(echo $vlink2 | base64 -w 0)
-----------------------------------------------------
+____________________________________________________
 Link gRPC : vmess://$(echo $vlink3 | base64 -w 0)
-----------------------------------------------------
+____________________________________________________
 END
-ISP=$(cat /usr/local/etc/xray/org)
-CITY=$(cat /usr/local/etc/xray/city)
 systemctl restart xray
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vmess-$user.txt
@@ -200,16 +201,18 @@ echo -e "Network       : Websocket" | tee -a /user/log-vmess-$user.txt
 echo -e "Path          : /(multipath) • ubah suka-suka" | tee -a /user/log-vmess-$user.txt
 echo -e "ServiceName   : vmess-grpc" | tee -a /user/log-vmess-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-vmess-$user.txt
+echo -e "Format Clash  : http://$domain:8000/vmess/vmess-$user.txt" | tee -a /user/log-vmess-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vmess-$user.txt
+echo -e "Expired On    : $exp" | tee -a /user/log-vmess-$user.txt
+echo " " | tee -a /user/log-vmess-$user.txt
+echo " " | tee -a /user/log-vmess-$user.txt
+echo " " | tee -a /user/log-vmess-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vmess-$user.txt
 echo -e "Link TLS      : $vmesslink1" | tee -a /user/log-vmess-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vmess-$user.txt
 echo -e "Link NTLS     : $vmesslink2" | tee -a /user/log-vmess-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vmess-$user.txt
 echo -e "Link gRPC     : $vmesslink3" | tee -a /user/log-vmess-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vmess-$user.txt
-echo -e "Format Clash  : http://$domain:8000/vmess/vmess-$user.txt" | tee -a /user/log-vmess-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vmess-$user.txt
-echo -e "Expired On    : $exp" | tee -a /user/log-vmess-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vmess-$user.txt
 echo " " | tee -a /user/log-vmess-$user.txt
 echo " " | tee -a /user/log-vmess-$user.txt
