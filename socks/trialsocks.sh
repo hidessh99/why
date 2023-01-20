@@ -15,10 +15,13 @@ sockslink1="socks://$socks_base64@$domain:443?path=/socks5&security=tls&host=$do
 sockslink2="socks://$socks_base64@$domain:80?path=/socks5&security=none&host=$domain&type=ws#$user"
 sockslink3="socks://$socks_base64@$domain:443?security=tls&encryption=none&type=grpc&serviceName=socks5-grpc&sni=$domain#$user"
 rm -rf /tmp/log
+ISP=$(cat /usr/local/etc/xray/org)
+CITY=$(cat /usr/local/etc/xray/city)
 cat > /var/www/html/socks5/socks5-$user.txt << EOF
-----------------------------------------------------
-           ----- [ Trial Socks5 ] -----
-----------------------------------------------------
+____________________________________________________
+
+            _____ [ Trial Socks5 ] _____
+____________________________________________________
 Username      : Socks5-$user
 Password      : $pass
 Domain        : $domain
@@ -34,13 +37,13 @@ Network       : Websocket, gRPC
 Path          : /socks5
 ServiceName   : socks5-grpc
 Alpn          : h2, http/1.1
-----------------------------------------------------
+____________________________________________________
 Expired On    : $exp
-----------------------------------------------------
 
-----------------------------------------------------
-        ----- [ Format Json Socks5 ] -----
-----------------------------------------------------
+
+____________________________________________________
+        _____ [ Format Json Socks5 ] _____
+____________________________________________________
 {
 "inbounds": [],
 "outbounds": [
@@ -92,20 +95,19 @@ Expired On    : $exp
 }
 }
 }
-----------------------------------------------------
+____________________________________________________
 
-----------------------------------------------------
-            ----- [ Link Socks5 ] -----
-----------------------------------------------------
+
+____________________________________________________
+            _____ [ Link Socks5 ] _____
+____________________________________________________
 Link TLS : socks://$socks_base64@$domain:443?path=/socks5&security=tls&host=$domain&type=ws&sni=$domain#$user
-----------------------------------------------------
+____________________________________________________
 Link NTLS : socks://$socks_base64@$domain:80?path=/socks5&security=none&host=$domain&type=ws#$user
-----------------------------------------------------
+____________________________________________________
 Link gRPC : socks://$socks_base64@$domain:443?security=tls&encryption=none&type=grpc&serviceName=socks5-grpc&sni=$domain#$user
-----------------------------------------------------
+____________________________________________________
 EOF
-ISP=$(cat /usr/local/etc/xray/org)
-CITY=$(cat /usr/local/etc/xray/city)
 systemctl restart xray
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-socks5-$user.txt
