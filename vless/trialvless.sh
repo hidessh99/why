@@ -17,7 +17,7 @@ CITY=$(cat /usr/local/etc/xray/city)
 cat > /var/www/html/vless/vless-$user.txt << END
 ____________________________________________________
 
-           _____ [ Xray / Vless ] _____                 
+         _____ [ Trial Xray / Vless ] _____                 
 ____________________________________________________
 Remarks       : Vless-$user
 Domain        : $domain
