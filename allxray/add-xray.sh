@@ -180,6 +180,7 @@ Network          : Websocket, gRPC
 Alpn             : h2, http/1.1
 ____________________________________________________
 Expired On       : $exp
+____________________________________________________
 
 
 ____________________________________________________
@@ -267,10 +268,11 @@ echo -e "Username Socks5  : $user" | tee -a /user/log-allxray-$user.txt
 echo -e "Password Socks5  : $pass" | tee -a /user/log-allxray-$user.txt
 echo -e "Network          : Websocket, gRPC" | tee -a /user/log-allxray-$user.txt
 echo -e "Alpn             : h2, http/1.1" | tee -a /user/log-allxray-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "Link Akun        : http://$domain:8000/allxray/allxray-$user.txt" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "Expired On       : $exp" | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
@@ -283,7 +285,6 @@ echo -e "━━━━━━━━━━━━━━━━━━━━━━━�
 echo -e "Link gRPC  : $vmesslink3" | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━ [ Xray / Vless ] ━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
@@ -292,7 +293,6 @@ echo -e "━━━━━━━━━━━━━━━━━━━━━━━�
 echo -e "Link NTLS  : $vlesslink2" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "Link gRPC  : $vlesslink3" | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
@@ -305,7 +305,6 @@ echo -e "━━━━━━━━━━━━━━━━━━━━━━━�
 echo -e "Link gRPC  : $trojanlink3" | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━ [ Shadowsocks ] ━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
@@ -316,7 +315,6 @@ echo -e "━━━━━━━━━━━━━━━━━━━━━━━�
 echo -e "Link gRPC  : $shadowsockslink3" | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━ [ Shadowsocks 2022 ] ━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
@@ -325,7 +323,6 @@ echo -e "━━━━━━━━━━━━━━━━━━━━━━━�
 echo -e "Link NTLS  : $ss22link2" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "Link gRPC  : $ss22link3" | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
