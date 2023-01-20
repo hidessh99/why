@@ -10,7 +10,7 @@ WB='\e[37;1m'
 clear
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
-echo -e "          ${WB}----- [  Create All Xray  ] -----${NC}         "
+echo -e "          ${WB}━━━━━ [  Create All Xray  ] ━━━━━${NC}         "
 echo -e "                ${WB}Vmess, Vless, Trojan${NC}                "
 echo -e "        ${WB}Shadowsocks 2022, Shadowsocks, Socks5${NC}       "
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
@@ -19,7 +19,7 @@ CLIENT_EXISTS=$(grep -w $user /usr/local/etc/xray/config.json | wc -l)
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
-echo -e "          ${WB}----- [  Create All Xray  ] -----${NC}         "
+echo -e "          ${WB}━━━━━ [  Create All Xray  ] ━━━━━${NC}         "
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e ""
 echo -e "${YB}A client with the specified name was already created, please choose another name.${NC}"
@@ -36,7 +36,7 @@ CLIENT_EXISTS=$(grep -w $pass /usr/local/etc/xray/config.json | wc -l)
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
-echo -e "          ${WB}----- [  Create All Xray  ] -----${NC}         "
+echo -e "          ${WB}━━━━━ [  Create All Xray  ] ━━━━━${NC}         "
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e ""
 echo -e "${YB}A client with the specified name was already created, please choose another name.${NC}"
