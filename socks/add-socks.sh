@@ -10,18 +10,18 @@ WB='\e[37;1m'
 clear
 domain=$(cat /usr/local/etc/xray/domain)
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "                 ${WB}Add Socks5 Account${NC}                 "
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 read -rp "Username: " -e user
 CLIENT_EXISTS=$(grep -w $user /usr/local/etc/xray/config.json | wc -l)
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "                 ${WB}Add Socks5 Account${NC}                 "
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+eecho -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "${YB}A client with the specified name was already created, please choose another name.${NC}"
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 read -n 1 -s -r -p "Press any key to back on menu"
 add-socks
 fi
@@ -31,13 +31,13 @@ read -rp "Password: " -e pass
 CLIENT_EXISTS=$(grep -w $pass /usr/local/etc/xray/config.json | wc -l)
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "                 ${WB}Add Socks5 Account${NC}                 "
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e ""
 echo -e "${YB}A client with the specified name was already created, please choose another name.${NC}"
 echo -e ""
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 read -n 1 -s -r -p "Press any key to back on menu"
 add-socks
 fi
@@ -54,10 +54,13 @@ sockslink1="socks://$socks_base64@$domain:443?path=/socks5&security=tls&host=$do
 sockslink2="socks://$socks_base64@$domain:80?path=/socks5&security=none&host=$domain&type=ws#$user"
 sockslink3="socks://$socks_base64@$domain:443?security=tls&encryption=none&type=grpc&serviceName=socks5-grpc&sni=$domain#$user"
 rm -rf /tmp/log
+ISP=$(cat /usr/local/etc/xray/org)
+CITY=$(cat /usr/local/etc/xray/city)
 cat > /var/www/html/socks5/socks5-$user.txt << EOF
-----------------------------------------------------
-              ----- [ Socks5 ] -----
-----------------------------------------------------
+____________________________________________________
+
+              _____ [ Socks5 ] _____
+____________________________________________________
 Username      : Socks5-$user
 Password      : $pass
 Domain        : $domain
@@ -73,13 +76,13 @@ Network       : Websocket, gRPC
 Path          : /socks5
 ServiceName   : socks5-grpc
 Alpn          : h2, http/1.1
-----------------------------------------------------
+____________________________________________________
 Expired On    : $exp
-----------------------------------------------------
 
-----------------------------------------------------
-        ----- [ Format Json Socks5 ] -----
-----------------------------------------------------
+
+____________________________________________________
+        _____ [ Format Json Socks5 ] _____
+____________________________________________________
 {
 "inbounds": [],
 "outbounds": [
@@ -131,20 +134,19 @@ Expired On    : $exp
 }
 }
 }
-----------------------------------------------------
+____________________________________________________
 
-----------------------------------------------------
-            ----- [ Link Socks5 ] -----
-----------------------------------------------------
+
+____________________________________________________
+            _____ [ Link Socks5 ] _____
+____________________________________________________
 Link TLS : socks://$socks_base64@$domain:443?path=/socks5&security=tls&host=$domain&type=ws&sni=$domain#$user
-----------------------------------------------------
+____________________________________________________
 Link NTLS : socks://$socks_base64@$domain:80?path=/socks5&security=none&host=$domain&type=ws#$user
-----------------------------------------------------
+____________________________________________________
 Link gRPC : socks://$socks_base64@$domain:443?security=tls&encryption=none&type=grpc&serviceName=socks5-grpc&sni=$domain#$user
-----------------------------------------------------
+____________________________________________________
 EOF
-ISP=$(cat /usr/local/etc/xray/org)
-CITY=$(cat /usr/local/etc/xray/city)
 systemctl restart xray
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-socks5-$user.txt
@@ -165,16 +167,18 @@ echo -e "Network       : Websocket, gRPC" | tee -a /user/log-socks5-$user.txt
 echo -e "Path          : /socks5" | tee -a /user/log-socks5-$user.txt
 echo -e "ServiceName   : socks5-grpc" | tee -a /user/log-socks5-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-socks5-$user.txt
+echo -e "Format JSON   : http://$domain:8000/socks5/socks5-$user.txt" | tee -a /user/log-socks5-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
+echo -e "Expired On    : $exp" | tee -a /user/log-socks5-$user.txt
+echo " " | tee -a /user/log-socks5-$user.txt
+echo " " | tee -a /user/log-socks5-$user.txt
+echo " " | tee -a /user/log-socks5-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-socks5-$user.txt
 echo -e "Link TLS      : $sockslink1" | tee -a /user/log-socks5-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-socks5-$user.txt
 echo -e "Link NTLS     : $sockslink2" | tee -a /user/log-socks5-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-socks5-$user.txt
 echo -e "Link gRPC     : $sockslink3" | tee -a /user/log-socks5-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-socks5-$user.txt
-echo -e "Format JSON   : http://$domain:8000/socks5/socks5-$user.txt" | tee -a /user/log-socks5-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
-echo -e "Expired On    : $exp" | tee -a /user/log-socks5-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-socks5-$user.txt
 echo " " | tee -a /user/log-socks5-$user.txt
 echo " " | tee -a /user/log-socks5-$user.txt
