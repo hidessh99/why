@@ -47,7 +47,7 @@ ____________________________________________________
 
             _____ [ Shadowsocks ] _____
 ____________________________________________________
-Remarks       : SS-$user
+Remarks       : $user
 Domain        : $domain
 Wildcard      : (bug.com).$domain
 ISP           : $ISP
