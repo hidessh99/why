@@ -119,7 +119,7 @@ ____________________________________________________
   udp: true
   tls: false
   skip-cert-verify: false
-  servername: ${domain
+  servername: $domain
   network: ws
   ws-opts:
     path: /vmess
