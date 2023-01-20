@@ -19,7 +19,7 @@ ____________________________________________________
 
          _____ [ Trial Xray / Vless ] _____                 
 ____________________________________________________
-Remarks       : Vless-$user
+Remarks       : $user
 Domain        : $domain
 Wildcard      : (bug.com).$domain
 ISP           : $ISP
