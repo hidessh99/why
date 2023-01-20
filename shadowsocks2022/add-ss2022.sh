@@ -66,6 +66,7 @@ ServiceName   : shadowsocks2022-grpc
 Alpn          : h2, http/1.1
 ____________________________________________________
 Expired On    : $exp
+____________________________________________________
 
 
 ____________________________________________________
@@ -137,10 +138,11 @@ echo -e "Network       : Websocket, gRPC" | tee -a /user/log-ss2022-$user.txt
 echo -e "Path          : /shadowsocks2022" | tee -a /user/log-ss2022-$user.txt
 echo -e "ServiceName   : shadowsocks2022-grpc" | tee -a /user/log-ss2022-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-ss2022-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
 echo -e "Format Clash  : http://$domain:8000/shadowsocks2022/shadowsocks2022-$user.txt" | tee -a /user/log-ss2022-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
 echo -e "Expired On    : $exp" | tee -a /user/log-ss2022-$user.txt
-echo " " | tee -a /user/log-ss2022-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
 echo " " | tee -a /user/log-ss2022-$user.txt
 echo " " | tee -a /user/log-ss2022-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
