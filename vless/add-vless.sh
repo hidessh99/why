@@ -37,106 +37,107 @@ vlesslink1="vless://$uuid@$domain:443?path=/vless&security=tls&encryption=none&h
 vlesslink2="vless://$uuid@$domain:80?path=/vless&security=none&encryption=none&host=$domain&type=ws#$user"
 vlesslink3="vless://$uuid@$domain:443?security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=$domain#$user"
 cat > /var/www/html/vless/vless-$user.txt << END
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━ [ Xray/Vless ] ━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Remarks       : $user
+----------------------------------------------------
+           ----- [ Xray / Vless ] -----                 
+----------------------------------------------------
+Remarks       : Vless-$user
 Domain        : $domain
+Wildcard      : (bug.com).$domain
 ISP           : $ISP
 City          : $CITY
-Wildcard      : (bug.com).$domain
 Port TLS      : 443
 Port NTLS     : 80
 Port gRPC     : 443
 Alt Port TLS  : 2053, 2083, 2087, 2096, 8443
 Alt Port NTLS : 8080, 8880, 2052, 2082, 2086, 2095
-id            : ${uuid}
+id            : $uuid
 Encryption    : none
 Network       : Websocket, gRPC
 Path          : /vless
 ServiceName   : vless-grpc
 Alpn          : h2, http/1.1
+----------------------------------------------------
 Expired On    : $exp
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+----------------------------------------------------
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━ [ Vless WS (CDN) TLS ] ━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+----------------------------------------------------
+         ----- [ Vless WS (CDN) TLS ] -----                 
+----------------------------------------------------
 - name: Vless-$user
-type: vless
-server: $domain
-port: 443
-uuid: $uuid
-cipher: auto
-udp: true
-tls: true
-skip-cert-verify: true
-servername: $domain
-network: ws
-ws-opts:
-path: /vless
-headers:
-Host: $domain
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  type: vless
+  server: $domain
+  port: 443
+  uuid: $uuid
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: $domain
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: $domain
+----------------------------------------------------
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━ [ Vless WS (CDN) ] ━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+----------------------------------------------------
+           ----- [ Vless WS (CDN) ] -----
+----------------------------------------------------
 - name: Vless-$user
-type: vless
-server: $domain
-port: 80
-uuid: $uuid
-cipher: auto
-udp: true
-tls: false
-skip-cert-verify: false
-network: ws
-ws-opts:
-path: /vless
-headers:
-Host: $domain
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  type: vless
+  server: $domain
+  port: 80
+  uuid: $uuid
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: $domain
+----------------------------------------------------
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━ [ Vless gRPC (CDN) ] ━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+----------------------------------------------------
+          ----- [ Vless gRPC (CDN) ] -----
+----------------------------------------------------
 - name: Vless-$user
-server: $domain
-port: 443
-type: vless
-uuid: $uuid
-cipher: auto
-network: grpc
-tls: true
-servername: $domain
-skip-cert-verify: true
-grpc-opts:
-grpc-service-name: "vless-grpc"
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  server: $domain
+  port: 443
+  type: vless
+  uuid: $uuid
+  cipher: auto
+  network: grpc
+  tls: true
+  servername: $domain
+  skip-cert-verify: true
+  grpc-opts:
+  grpc-service-name: "vless-grpc"
+----------------------------------------------------
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━ [ Link Xray/Vless ] ━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+----------------------------------------------------
+             ----- [ Link Vless ] -----
+----------------------------------------------------
 Link TL   : vless://$uuid@$domain:443?path=/vless&security=tls&encryption=none&host=$domain&type=ws&sni=$domain#$user
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+----------------------------------------------------
 Link NTLS : vless://$uuid@$domain:80?path=/vless&security=none&encryption=none&host=$domain&type=ws#$user
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+----------------------------------------------------
 Link gRPC : vless://$uuid@$domain:443?security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=$domain#$user
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+----------------------------------------------------
 END
 ISP=$(cat /usr/local/etc/xray/org)
 CITY=$(cat /usr/local/etc/xray/city)
 systemctl restart xray
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
-echo -e "━━━━━ [ Xray/Vless ] ━━━━━" | tee -a /user/log-vless-$user.txt
+echo -e "━━━━━ [ Xray / Vless ] ━━━━━" | tee -a /user/log-vless-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
 echo -e "Remarks       : $user" | tee -a /user/log-vless-$user.txt
 echo -e "Domain        : $domain" | tee -a /user/log-vless-$user.txt
+echo -e "Wildcard      : (bug.com).$domain" | tee -a /user/log-vless-$user.txt
 echo -e "ISP           : $ISP" | tee -a /user/log-vless-$user.txt
 echo -e "City          : $CITY" | tee -a /user/log-vless-$user.txt
-echo -e "Wildcard      : (bug.com).$domain" | tee -a /user/log-vless-$user.txt
 echo -e "Port TLS      : 443" | tee -a /user/log-vless-$user.txt
 echo -e "Port NTLS     : 80" | tee -a /user/log-vless-$user.txt
 echo -e "Port gRPC     : 443" | tee -a /user/log-vless-$user.txt
