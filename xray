@@ -13,7 +13,7 @@ secs_to_human() {
 echo -e "${WB}Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds${NC}"
 }
 start=$(date +%s)
-GIHUB_REPO=raw.githubusercontent.com/dugong-lewat/dugong-lewat/other
+GIHUB_REPO=raw.githubusercontent.com/whxxyu/conf
 apt update -y
 apt full-upgrade -y
 apt dist-upgrade -y
@@ -30,8 +30,6 @@ cp /usr/local/bin/xray /backup/xray.official.backup
 curl -s ipinfo.io/city >> /usr/local/etc/xray/city
 curl -s ipinfo.io/org | cut -d " " -f 2-10 >> /usr/local/etc/xray/org
 curl -s ipinfo.io/timezone >> /usr/local/etc/xray/timezone
-clear
-sudo apt-get install lolcat -y
 clear
 echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Xray-core mod${NC}"
 sleep 0.5
@@ -291,7 +289,7 @@ clear
 echo ""
 echo ""
 echo -e "${BB}—————————————————————————————————————————————————————————${NC}"
-echo -e "                ${WB}PREMIUM SCRIPT BY WHXXYU{NC}"
+echo -e "                ${WB}PREMIUM SCRIPT BY WHXXYU${NC}"
 echo -e "${BB}—————————————————————————————————————————————————————————${NC}"
 echo -e "  ${WB}»»» Protocol Service «««  |  »»» Network Protocol «««${NC}  "
 echo -e "${BB}—————————————————————————————————————————————————————————${NC}"
