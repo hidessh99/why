@@ -40,6 +40,8 @@ sslink1="ss://${ss_base64}@$domain:443?path=/shadowsocks&security=tls&host=${dom
 sslink2="ss://${ss_base64}@$domain:80?path=/shadowsocks&security=none&host=${domain}&type=ws#${user}"
 sslink3="ss://${ss_base64}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=shadowsocks-grpc&sni=$domain#${user}"
 rm -rf /tmp/log
+ISP=$(cat /usr/local/etc/xray/org)
+CITY=$(cat /usr/local/etc/xray/city)
 cat > /var/www/html/shadowsocks/shadowsocks-$user.txt << END
 ____________________________________________________
 
@@ -113,8 +115,6 @@ ____________________________________________________
 Link gRPC : ss://${ss_base64}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=shadowsocks-grpc&sni=$domain#${user}
 ____________________________________________________
 END
-ISP=$(cat /usr/local/etc/xray/org)
-CITY=$(cat /usr/local/etc/xray/city)
 systemctl restart xray
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
