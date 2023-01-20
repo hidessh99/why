@@ -155,6 +155,7 @@ sockslink3="socks://$socks_base64@$domain:443?security=tls&encryption=none&type=
 rm -rf /tmp/log
 cat > /var/www/html/allxray/allxray-$user.txt << END
 ____________________________________________________
+
            _____ [ Trial ALL XRAY ] _____
                 Vmess, Vless, Trojan 
         Shadowsocks, Shadowsocks 2022, Socks5
@@ -180,6 +181,7 @@ Alpn             : h2, http/1.1
 ____________________________________________________
 Expired On       : $exp
 ____________________________________________________
+
 ____________________________________________________
             _____ [ Xray/Vmess ] _____
 ____________________________________________________
@@ -189,6 +191,7 @@ Link NTLS  : $vmesslink2
 ____________________________________________________
 Link gRPC  : $vmesslink3
 ____________________________________________________
+
 ____________________________________________________
             _____ [ Xray/Vless ] _____
 ____________________________________________________
@@ -198,6 +201,7 @@ Link NTLS  : $vlesslink2
 ____________________________________________________
 Link gRPC  : $vlesslink3
 ____________________________________________________
+
 ____________________________________________________
             _____ [ Xray/Trojan ] _____
 ____________________________________________________
@@ -207,6 +211,7 @@ Link NTLS  : $trojanlink2
 ____________________________________________________
 Link gRPC  : $trojanlink3
 ____________________________________________________
+
 ____________________________________________________
             _____ [ Shadowsocks ] _____
 ____________________________________________________
@@ -216,6 +221,7 @@ Link NTLS  : $shadowsockslink2
 ____________________________________________________
 Link gRPC  : $shadowsockslink3
 ____________________________________________________
+
 ____________________________________________________
          _____ [ Shadowsocks 2022 ] _____
 ____________________________________________________
@@ -225,6 +231,7 @@ Link NTLS  : $ss22link2
 ____________________________________________________
 Link gRPC  : $ss22link3
 ____________________________________________________
+
 ____________________________________________________
               _____ [ Socks5 ] _____
 ____________________________________________________
@@ -265,6 +272,7 @@ echo -e "Link Akun        : http://$domain:8000/allxray/allxray-$user.txt" | tee
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
+echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━ [ Xray / Vmess ] ━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
@@ -274,6 +282,7 @@ echo -e "Link NTLS  : $vmesslink2" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "Link gRPC  : $vmesslink3" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
+echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
@@ -287,6 +296,7 @@ echo -e "Link gRPC  : $vlesslink3" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
+echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━ [ Xray / Trojan ] ━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
@@ -296,6 +306,7 @@ echo -e "Link NTLS  : $trojanlink2" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "Link gRPC  : $trojanlink3" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
+echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
@@ -309,6 +320,7 @@ echo -e "Link gRPC  : $shadowsockslink3" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
+echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━ [ Shadowsocks 2022 ] ━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
@@ -318,6 +330,7 @@ echo -e "Link NTLS  : $ss22link2" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "Link gRPC  : $ss22link3" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
+echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
