@@ -9,7 +9,7 @@ CB='\e[35;1m'
 WB='\e[37;1m'
 clear
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "              ${WB}----- [ Socks5 Menu ] -----${NC}               " | lolcat -a -d 10
+echo -e "              ${WB}----- [ Socks5 Menu ] -----${NC}               "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e ""
 echo -e " ${MB}[1]${NC} ${YB}Create Account Socks5${NC} "
