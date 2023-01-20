@@ -38,7 +38,7 @@ echo -e "${GB}[ INFO ]${NC} ${YB}Download Xray-core done${NC}"
 sleep 1
 cd
 clear
-sudo apt-get install -y lolcat
+sudo apt-get install lolcat -y
 clear
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
 sudo apt-get install speedtest
