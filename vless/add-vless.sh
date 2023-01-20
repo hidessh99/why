@@ -10,18 +10,18 @@ WB='\e[37;1m'
 clear
 domain=$(cat /usr/local/etc/xray/domain)
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "                  ${WB}Add Vless Account${NC}                 "
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 read -rp "User: " -e user
 CLIENT_EXISTS=$(grep -w $user /usr/local/etc/xray/config.json | wc -l)
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "                  Add Vless Account                 "
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "${YB}A client with the specified name was already created, please choose another name.${NC}"
-echo -e "${BB}————————————————————————————————————————————————————${NC}"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 read -n 1 -s -r -p "Press any key to back on menu"
 add-vless
 fi
@@ -36,10 +36,13 @@ sed -i '/#vless-grpc$/a\#= '"$user $exp"'\
 vlesslink1="vless://$uuid@$domain:443?path=/vless&security=tls&encryption=none&host=$domain&type=ws&sni=$domain#$user"
 vlesslink2="vless://$uuid@$domain:80?path=/vless&security=none&encryption=none&host=$domain&type=ws#$user"
 vlesslink3="vless://$uuid@$domain:443?security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=$domain#$user"
+ISP=$(cat /usr/local/etc/xray/org)
+CITY=$(cat /usr/local/etc/xray/city)
 cat > /var/www/html/vless/vless-$user.txt << END
-----------------------------------------------------
-           ----- [ Xray / Vless ] -----                 
-----------------------------------------------------
+____________________________________________________
+
+           _____ [ Xray / Vless ] _____                 
+____________________________________________________
 Remarks       : Vless-$user
 Domain        : $domain
 Wildcard      : (bug.com).$domain
@@ -56,13 +59,13 @@ Network       : Websocket, gRPC
 Path          : /vless
 ServiceName   : vless-grpc
 Alpn          : h2, http/1.1
-----------------------------------------------------
+____________________________________________________
 Expired On    : $exp
-----------------------------------------------------
 
-----------------------------------------------------
-         ----- [ Vless WS (CDN) TLS ] -----                 
-----------------------------------------------------
+
+____________________________________________________
+         _____ [ Vless WS (CDN) TLS ] _____                 
+____________________________________________________
 - name: Vless-$user
   type: vless
   server: $domain
@@ -78,11 +81,11 @@ Expired On    : $exp
     path: /vless
     headers:
       Host: $domain
-----------------------------------------------------
 
-----------------------------------------------------
-           ----- [ Vless WS (CDN) ] -----
-----------------------------------------------------
+
+____________________________________________________
+           _____ [ Vless WS (CDN) ] _____
+____________________________________________________
 - name: Vless-$user
   type: vless
   server: $domain
@@ -97,11 +100,11 @@ Expired On    : $exp
     path: /vless
     headers:
       Host: $domain
-----------------------------------------------------
 
-----------------------------------------------------
-          ----- [ Vless gRPC (CDN) ] -----
-----------------------------------------------------
+
+____________________________________________________
+          _____ [ Vless gRPC (CDN) ] _____
+____________________________________________________
 - name: Vless-$user
   server: $domain
   port: 443
@@ -114,20 +117,18 @@ Expired On    : $exp
   skip-cert-verify: true
   grpc-opts:
   grpc-service-name: "vless-grpc"
-----------------------------------------------------
 
-----------------------------------------------------
-             ----- [ Link Vless ] -----
-----------------------------------------------------
+
+____________________________________________________
+             _____ [ Link Vless ] _____
+____________________________________________________
 Link TL   : vless://$uuid@$domain:443?path=/vless&security=tls&encryption=none&host=$domain&type=ws&sni=$domain#$user
-----------------------------------------------------
+____________________________________________________
 Link NTLS : vless://$uuid@$domain:80?path=/vless&security=none&encryption=none&host=$domain&type=ws#$user
-----------------------------------------------------
+____________________________________________________
 Link gRPC : vless://$uuid@$domain:443?security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=$domain#$user
-----------------------------------------------------
+____________________________________________________
 END
-ISP=$(cat /usr/local/etc/xray/org)
-CITY=$(cat /usr/local/etc/xray/city)
 systemctl restart xray
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
@@ -149,16 +150,18 @@ echo -e "Network       : Websocket, gRPC" | tee -a /user/log-vless-$user.txt
 echo -e "Path          : /vless" | tee -a /user/log-vless-$user.txt
 echo -e "ServiceName   : vless-grpc" | tee -a /user/log-vless-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-vless-$user.txt
+echo -e "Format Clash  : http://$domain:8000/vless/vless-$user.txt" | tee -a /user/log-vless-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
+echo -e "Expired On    : $exp" | tee -a /user/log-vless-$user.txt
+echo " " | tee -a /user/log-vless-$user.txt
+echo " " | tee -a /user/log-vless-$user.txt
+echo " " | tee -a /user/log-vless-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
 echo -e "Link TLS      : $vlesslink1" | tee -a /user/log-vless-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
 echo -e "Link NTLS     : $vlesslink2" | tee -a /user/log-vless-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
 echo -e "Link gRPC     : $vlesslink3" | tee -a /user/log-vless-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
-echo -e "Format Clash  : http://$domain:8000/vless/vless-$user.txt" | tee -a /user/log-vless-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
-echo -e "Expired On    : $exp" | tee -a /user/log-vless-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
 echo " " | tee -a /user/log-vless-$user.txt
 echo " " | tee -a /user/log-vless-$user.txt
