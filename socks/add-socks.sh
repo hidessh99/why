@@ -61,7 +61,7 @@ ____________________________________________________
 
               _____ [ Socks5 ] _____
 ____________________________________________________
-Username      : Socks5-$user
+Username      : $user
 Password      : $pass
 Domain        : $domain
 Wildcard      : (bug.com).$domain
