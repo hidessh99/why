@@ -78,6 +78,7 @@ ServiceName   : socks5-grpc
 Alpn          : h2, http/1.1
 ____________________________________________________
 Expired On    : $exp
+____________________________________________________
 
 
 ____________________________________________________
@@ -167,10 +168,7 @@ echo -e "Network       : Websocket, gRPC" | tee -a /user/log-socks5-$user.txt
 echo -e "Path          : /socks5" | tee -a /user/log-socks5-$user.txt
 echo -e "ServiceName   : socks5-grpc" | tee -a /user/log-socks5-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-socks5-$user.txt
-echo -e "Format JSON   : http://$domain:8000/socks5/socks5-$user.txt" | tee -a /user/log-socks5-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
-echo -e "Expired On    : $exp" | tee -a /user/log-socks5-$user.txt
-echo " " | tee -a /user/log-socks5-$user.txt
 echo " " | tee -a /user/log-socks5-$user.txt
 echo " " | tee -a /user/log-socks5-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-socks5-$user.txt
@@ -179,7 +177,13 @@ echo -e "━━━━━━━━━━━━━━━━━━━━━━━�
 echo -e "Link NTLS     : $sockslink2" | tee -a /user/log-socks5-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-socks5-$user.txt
 echo -e "Link gRPC     : $sockslink3" | tee -a /user/log-socks5-$user.txt
+echo " " | tee -a /user/log-socks5-$user.txt
+echo " " | tee -a /user/log-socks5-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-socks5-$user.txt
+echo -e "Format JSON   : http://$domain:8000/socks5/socks5-$user.txt" | tee -a /user/log-socks5-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
+echo -e "Expired On    : $exp" | tee -a /user/log-socks5-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss2022-$user.txt
 echo " " | tee -a /user/log-socks5-$user.txt
 echo " " | tee -a /user/log-socks5-$user.txt
 echo " " | tee -a /user/log-socks5-$user.txt
