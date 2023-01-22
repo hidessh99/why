@@ -61,6 +61,7 @@ ServiceName   : vless-grpc
 Alpn          : h2, http/1.1
 ____________________________________________________
 Expired On    : $exp
+____________________________________________________
 
 
 ____________________________________________________
@@ -150,10 +151,7 @@ echo -e "Network       : Websocket, gRPC" | tee -a /user/log-vless-$user.txt
 echo -e "Path          : /vless" | tee -a /user/log-vless-$user.txt
 echo -e "ServiceName   : vless-grpc" | tee -a /user/log-vless-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-vless-$user.txt
-echo -e "Format Clash  : http://$domain:8000/vless/vless-$user.txt" | tee -a /user/log-vless-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
-echo -e "Expired On    : $exp" | tee -a /user/log-vless-$user.txt
-echo " " | tee -a /user/log-vless-$user.txt
 echo " " | tee -a /user/log-vless-$user.txt
 echo " " | tee -a /user/log-vless-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
@@ -162,6 +160,12 @@ echo -e "━━━━━━━━━━━━━━━━━━━━━━━�
 echo -e "Link NTLS     : $vlesslink2" | tee -a /user/log-vless-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
 echo -e "Link gRPC     : $vlesslink3" | tee -a /user/log-vless-$user.txt
+echo " " | tee -a /user/log-vless-$user.txt
+echo " " | tee -a /user/log-vless-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
+echo -e "Format Clash  : http://$domain:8000/vless/vless-$user.txt" | tee -a /user/log-vless-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
+echo -e "Expired On    : $exp" | tee -a /user/log-vless-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
 echo " " | tee -a /user/log-vless-$user.txt
 echo " " | tee -a /user/log-vless-$user.txt
