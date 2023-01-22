@@ -317,9 +317,9 @@ echo -e "Link NTLS  : $sockslink2" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "Link gRPC  : $sockslink3" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
-echo -e "Link Akun        : http://$domain:8000/allxray/allxray-$user.txt" | tee -a /user/log-allxray-$user.txt
+echo -e "Link Akun  : http://$domain:8000/allxray/allxray-$user.txt" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
-echo -e "Expired On       : $exp" | tee -a /user/log-allxray-$user.txt
+echo -e "Expired On : $exp" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
