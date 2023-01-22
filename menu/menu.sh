@@ -37,17 +37,18 @@ echo -e ""
 echo -e "       ${WB}━━━━━ [ PREMIUM XRAY SCRIPT WHXXYU ] ━━━━━${NC}       "
 echo -e ""
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
-echo -e "     ${WB}NGINX STATUS :${NC} $status_nginx    ${WB}XRAY STATUS :${NC} $status_xray   "
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e " ${YB}Service Provider${NC} ${WB}: $ISP"
 echo -e " ${YB}Timezone${NC}         ${WB}: $WKT${NC}"
 echo -e " ${YB}City${NC}             ${WB}: $CITY${NC}"
 echo -e " ${YB}Date${NC}             ${WB}: $DATE${NC}"
 echo -e " ${YB}Domain${NC}           ${WB}: $domain${NC}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "     ${WB}NGINX STATUS :${NC} $status_nginx    ${WB}XRAY STATUS :${NC} $status_xray   "
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "          ${WB}━━━━━ [ Bandwidth Monitoring ] ━━━━━${NC}" 
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10
+echo -e ""
 echo -e "  ${GB}Today ($DATE)     Monthly ($(date +%B/%Y))${NC}      "
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10
 echo -e "    ${GB}↓↓ Down: $dtoday          ↓↓ Down: $dmon${NC}   "
 echo -e "    ${GB}↑↑ Up  : $utoday          ↑↑ Up  : $umon${NC}   "
 echo -e "    ${GB}≈ Total: $ttoday          ≈ Total: $tmon${NC}   "
