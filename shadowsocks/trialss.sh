@@ -114,18 +114,20 @@ echo -e "Path          : /shadowsocks" | tee -a /user/log-ss-$user.txt
 echo -e "ServiceName   : shadowsocks-grpc" | tee -a /user/log-ss-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-ss-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
-echo -e "Format Clash  : http://$domain:8000/shadowsocks/shadowsocks-$user.txt" | tee -a /user/log-ss-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
-echo -e "Expired On    : $exp" | tee -a /user/log-ss-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
-echo " " | tee -a /user/log-ss-$user.txt
-echo " " | tee -a /user/log-ss-$user.txt
+echo -e " " | tee -a /user/log-allxray-$user.txt
+echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
 echo -e "Link TLS      : $sslink1" | tee -a /user/log-ss-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
 echo -e "Link NTLS     : $sslink2" | tee -a /user/log-ss-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
 echo -e "Link gRPC     : $sslink3" | tee -a /user/log-ss-$user.txt
+echo " " | tee -a /user/log-ss-$user.txt
+echo " " | tee -a /user/log-ss-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
+echo -e "Format Clash  : http://$domain:8000/shadowsocks/shadowsocks-$user.txt" | tee -a /user/log-ss-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
+echo -e "Expired On    : $exp" | tee -a /user/log-ss-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
 echo " " | tee -a /user/log-ss-$user.txt
 echo " " | tee -a /user/log-ss-$user.txt
