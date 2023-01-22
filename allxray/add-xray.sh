@@ -162,7 +162,6 @@ ____________________________________________________
 ____________________________________________________
 Remarks          : $user
 Domain           : $domain
-Wildcard         : (bug.com).$domain
 ISP              : $ISP
 City             : $CITY
 Port TLS         : 443
