@@ -269,6 +269,10 @@ echo -e "Password Socks5  : $pass" | tee -a /user/log-allxray-$user.txt
 echo -e "Network          : Websocket, gRPC" | tee -a /user/log-allxray-$user.txt
 echo -e "Alpn             : h2, http/1.1" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
+echo -e "Link Akun  : http://$domain:8000/allxray/allxray-$user.txt" | tee -a /user/log-allxray-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
+echo -e "Expired On : $exp" | tee -a /user/log-allxray-$user.txt
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━ [ Xray / Vmess ] ━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "Link TLS   : $vmesslink1" | tee -a /user/log-allxray-$user.txt
@@ -316,10 +320,6 @@ echo -e "━━━━━━━━━━━━━━━━━━━━━━━�
 echo -e "Link NTLS  : $sockslink2" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "Link gRPC  : $sockslink3" | tee -a /user/log-allxray-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
-echo -e "Link Akun  : http://$domain:8000/allxray/allxray-$user.txt" | tee -a /user/log-allxray-$user.txt
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
-echo -e "Expired On : $exp" | tee -a /user/log-allxray-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
