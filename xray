@@ -22,6 +22,8 @@ mkdir /backup > /dev/null 2>&1
 mkdir /user > /dev/null 2>&1
 mkdir /tmp > /dev/null 2>&1
 clear
+vnstat --remove -i eth1 --force
+clear
 rm /usr/local/etc/xray/city > /dev/null 2>&1
 rm /usr/local/etc/xray/org > /dev/null 2>&1
 rm /usr/local/etc/xray/timezone > /dev/null 2>&1
