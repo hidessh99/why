@@ -25,7 +25,6 @@ ____________________________________________________
 Username      : $user
 Password      : $pass
 Domain        : $domain
-Wildcard      : (bug.com).$domain
 ISP           : $ISP
 City          : $CITY
 Port TLS      : 443
@@ -117,7 +116,6 @@ cho -e "━━━━━━━━━━━━━━━━━━━━━━━━
 echo -e "Username      : $user" | tee -a /user/log-socks5-$user.txt
 echo -e "Password      : $pass" | tee -a /user/log-socks5-$user.txt
 echo -e "Domain        : $domain" | tee -a /user/log-socks5-$user.txt
-echo -e "Wildcard      : (bug.com).$domain" | tee -a /user/log-socks5-$user.txt
 echo -e "ISP           : $ISP" | tee -a /user/log-socks5-$user.txt
 echo -e "City          : $CITY" | tee -a /user/log-socks5-$user.txt
 echo -e "Port TLS      : 443" | tee -a /user/log-socks5-$user.txt
