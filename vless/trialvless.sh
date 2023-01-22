@@ -21,7 +21,6 @@ ____________________________________________________
 ____________________________________________________
 Remarks       : $user
 Domain        : $domain
-Wildcard      : (bug.com).$domain
 ISP           : $ISP
 City          : $CITY
 Port TLS      : 443
@@ -113,7 +112,6 @@ echo -e "━━━━━ [ Trial Xray / Vless ] ━━━━━" | tee -a /user/
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vless-$user.txt
 echo -e "Remarks       : $user" | tee -a /user/log-vless-$user.txt
 echo -e "Domain        : $domain" | tee -a /user/log-vless-$user.txt
-echo -e "Wildcard      : (bug.com).$domain" | tee -a /user/log-vless-$user.txt
 echo -e "ISP           : $ISP" | tee -a /user/log-vless-$user.txt
 echo -e "City          : $CITY" | tee -a /user/log-vless-$user.txt
 echo -e "Port TLS      : 443" | tee -a /user/log-vless-$user.txt
