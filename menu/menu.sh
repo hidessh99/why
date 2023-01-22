@@ -46,9 +46,9 @@ echo -e "━━━━━━━━━━━━━━━━━━━━━━━�
 echo -e "     ${WB}NGINX STATUS :${NC} $status_nginx    ${WB}XRAY STATUS :${NC} $status_xray   "
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "          ${WB}━━━━━ [ Bandwidth Monitoring ] ━━━━━${NC}" 
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10
-echo -e "   ${GB}Today ($DATE)     Monthly ($(date +%B/%Y))${NC}  "
 echo -e ""
+echo -e "   ${GB}Today ($DATE)     Monthly ($(date +%B/%Y))${NC}  "
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10
 echo -e "    ${GB}↓↓ Down: $dtoday          ↓↓ Down: $dmon${NC}   "
 echo -e "    ${GB}↑↑ Up  : $utoday          ↑↑ Up  : $umon${NC}   "
 echo -e "    ${GB}≈ Total: $ttoday          ≈ Total: $tmon${NC}   "
