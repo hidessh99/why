@@ -45,7 +45,6 @@ ____________________________________________________
 ____________________________________________________
 Remarks       : $user
 Host/IP       : $domain
-Wildcard      : (bug.com).$domain
 ISP           : $ISP
 City          : $CITY
 Port TLS      : 443
@@ -114,7 +113,6 @@ echo -e "━━━━━ [ Xray / Trojan ] ━━━━━" | tee -a /user/log-t
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-trojan-$user.txt
 echo -e "Remarks       : $user" | tee -a /user/log-trojan-$user.txt
 echo -e "Host/IP       : $domain" | tee -a /user/log-trojan-$user.txt
-echo -e "Wildcard      : (bug.com).$domain" | tee -a /user/log-trojan-$user.txt
 echo -e "ISP           : $ISP" | tee -a /user/log-trojan-$user.txt
 echo -e "City          : $CITY" | tee -a /user/log-trojan-$user.txt
 echo -e "Port TLS      : 443" | tee -a /user/log-trojan-$user.txt
