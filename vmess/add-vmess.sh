@@ -125,7 +125,7 @@ ____________________________________________________
   servername: $domain
   network: ws
   ws-opts:
-    path: /vmess /(multipath)
+    path: /vmess, /(multipath)
     headers:
       Host: $domain
 
@@ -146,7 +146,7 @@ ____________________________________________________
   servername: $domain
   network: ws
   ws-opts:
-    path: /vmess /(multipath)
+    path: /vmess, /(multipath)
     headers:
       Host: $domain
 
