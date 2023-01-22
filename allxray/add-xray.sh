@@ -252,7 +252,6 @@ echo -e "Shadowsocks, Shadowsocks 2022, Socks5" | tee -a /user/log-allxray-$user
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-allxray-$user.txt
 echo -e "Remarks          : $user" | tee -a /user/log-allxray-$user.txt
 echo -e "Domain           : $domain" | tee -a /user/log-allxray-$user.txt
-echo -e "Wildcard         : (bug.com).$domain" | tee -a /user/log-allxray-$user.txt
 echo -e "ISP              : $ISP" | tee -a /user/log-allxray-$user.txt
 echo -e "City             : $CITY" | tee -a /user/log-allxray-$user.txt
 echo -e "Port TLS         : 443" | tee -a /user/log-allxray-$user.txt
