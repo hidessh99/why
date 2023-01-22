@@ -66,7 +66,6 @@ ____________________________________________________
 ____________________________________________________
 Remarks       : $user
 Domain        : $domain
-Wildcard      : (bug.com).$domain
 ISP           : $ISP
 City          : $CITY
 Port TLS      : 443
@@ -78,7 +77,7 @@ id            : $uuid
 AlterId       : 0
 Security      : auto
 Network       : Websocket
-Path          : /vmess /(multipath)
+Path          : /vmess, /(multipath)
 ServiceName   : vmess-grpc
 Alpn          : h2, http/1.1
 ____________________________________________________
@@ -102,7 +101,7 @@ ____________________________________________________
   servername: $domain
   network: ws
   ws-opts:
-    path: /vmess /(multipath)
+    path: /vmess, /(multipath)
     headers:
       Host: $domain
       
@@ -123,7 +122,7 @@ ____________________________________________________
   servername: $domain
   network: ws
   ws-opts:
-    path: /vmess /(multipath)
+    path: /vmess, /(multipath)
     headers:
       Host: $domain
       
@@ -163,7 +162,6 @@ echo -e "━━━━━ [ Trial Xray / Vmess ] ━━━━━" | tee -a /user/
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vmess-$user.txt
 echo -e "Remarks       : $user" | tee -a /user/log-vmess-$user.txt
 echo -e "Domain        : $domain" | tee -a /user/log-vmess-$user.txt
-echo -e "Wildcard      : (bug.com).$domain" | tee -a /user/log-vmess-$user.txt
 echo -e "ISP           : $ISP" | tee -a /user/log-vmess-$user.txt
 echo -e "City          : $CITY" | tee -a /user/log-vmess-$user.txt
 echo -e "Port TLS      : 443" | tee -a /user/log-vmess-$user.txt
