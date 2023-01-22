@@ -90,7 +90,6 @@ ____________________________________________________
 ____________________________________________________
 Remarks       : $user
 Domain        : $domain
-Wildcard      : (bug.com).$domain
 ISP           : $ISP
 City          : $CITY
 Port TLS      : 443
@@ -102,7 +101,7 @@ id            : $uuid
 AlterId       : 0
 Security      : auto
 Network       : Websocket
-Path          : /vmess /(multipath)
+Path          : /vmess, /(multipath)
 ServiceName   : vmess-grpc
 Alpn          : h2, http/1.1
 ____________________________________________________
@@ -187,7 +186,6 @@ echo -e "━━━━━ [ Xray / Vmess ] ━━━━━" | tee -a /user/log-vm
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vmess-$user.txt
 echo -e "Remarks       : $user" | tee -a /user/log-vmess-$user.txt
 echo -e "Domain        : $domain" | tee -a /user/log-vmess-$user.txt
-echo -e "Wildcard      : (bug.com).$domain" | tee -a /user/log-vmess-$user.txt
 echo -e "ISP           : $ISP" | tee -a /user/log-vmess-$user.txt
 echo -e "City          : $CITY" | tee -a /user/log-vmess-$user.txt
 echo -e "Port TLS      : 443" | tee -a /user/log-vmess-$user.txt
@@ -199,7 +197,7 @@ echo -e "id            : $uuid" | tee -a /user/log-vmess-$user.txt
 echo -e "AlterId       : 0" | tee -a /user/log-vmess-$user.txt
 echo -e "Security      : auto" | tee -a /user/log-vmess-$user.txt
 echo -e "Network       : Websocket" | tee -a /user/log-vmess-$user.txt
-echo -e "Path          : /vmess /(multipath)" | tee -a /user/log-vmess-$user.txt
+echo -e "Path          : /vmess, /(multipath)" | tee -a /user/log-vmess-$user.txt
 echo -e "ServiceName   : vmess-grpc" | tee -a /user/log-vmess-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-vmess-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vmess-$user.txt
