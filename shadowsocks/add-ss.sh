@@ -49,7 +49,6 @@ ____________________________________________________
 ____________________________________________________
 Remarks       : $user
 Domain        : $domain
-Wildcard      : (bug.com).$domain
 ISP           : $ISP
 City          : $CITY
 Port TLS      : 443
@@ -123,7 +122,6 @@ echo -e "━━━━━ [ Shadowsocks ] ━━━━━" | tee -a /user/log-ss-
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-ss-$user.txt
 echo -e "Remarks       : $user" | tee -a /user/log-ss-$user.txt
 echo -e "Domain        : $domain" | tee -a /user/log-ss-$user.txt
-echo -e "Wildcard      : (bug.com).$domain" | tee -a /user/log-ss-$user.txt
 echo -e "ISP           : $ISP" | tee -a /user/log-ss-$user.txt
 echo -e "City          : $CITY" | tee -a /user/log-ss-$user.txt
 echo -e "Port TLS      : 443" | tee -a /user/log-ss-$user.txt
