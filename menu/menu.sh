@@ -47,10 +47,10 @@ echo -e "  ${YB}Domain${NC}           ${WB}: $domain${NC}"
 echo -e "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" | lolcat -a -d 10 
 echo -e "            ${WB}━━━━━ [ Bandwidth Monitoring ] ━━━━━${NC}           "
 echo -e "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" | lolcat -a -d 10 
-echo -e "    ${GB}Today ($DATE)     Monthly ($(date +%B/%Y))${NC}  "
-echo -e "      ${GB}↓↓ Down: $dtoday           ↓↓ Down: $dmon${NC}  "
-echo -e "      ${GB}↑↑ Up  : $utoday           ↑↑ Up  : $umon${NC}  "
-echo -e "      ${GB}≈ Total: $ttoday           ≈ Total: $tmon${NC} "
+echo -e "    ${GB}Today ($DATE)     Monthly ($(date +%B/%Y))${NC}    "
+echo -e "      ${GB}↓↓ Down: $dtoday             ↓↓ Down: $dmon${NC}  "
+echo -e "      ${GB}↑↑ Up  : $utoday             ↑↑ Up  : $umon${NC}  "
+echo -e "      ${GB}≈ Total: $ttoday             ≈ Total: $tmon${NC} "
 echo -e "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" | lolcat -a -d 10 
 echo -e "                 ${WB}━━━━━ [ Menu Xray ] ━━━━━${NC}                "
 echo -e "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" | lolcat -a -d 10 
