@@ -77,7 +77,7 @@ id            : $uuid
 AlterId       : 0
 Security      : auto
 Network       : Websocket
-Path          : /vmess, /(multipath)
+Path          : /vmess /(multipath)
 ServiceName   : vmess-grpc
 Alpn          : h2, http/1.1
 ____________________________________________________
@@ -88,7 +88,7 @@ ____________________________________________________
 ____________________________________________________
         _____ [ Vmess WS (CDN) TLS ] _____                 
 ____________________________________________________
-- name: Vmess-$user
+- name: vmess-$user
   type: vmess
   server: $domain
   port: 443
@@ -101,7 +101,7 @@ ____________________________________________________
   servername: $domain
   network: ws
   ws-opts:
-    path: /vmess, /(multipath)
+    path: /vmess /(multipath)
     headers:
       Host: $domain
       
@@ -109,7 +109,7 @@ ____________________________________________________
 ____________________________________________________
            _____ [ Vmess WS (CDN) ] _____
 ____________________________________________________
-- name: Vmess-$user
+- name: vmess-$user
   type: vmess
   server: $domain
   port: 80
@@ -122,7 +122,7 @@ ____________________________________________________
   servername: $domain
   network: ws
   ws-opts:
-    path: /vmess, /(multipath)
+    path: /vmess /(multipath)
     headers:
       Host: $domain
       
@@ -130,7 +130,7 @@ ____________________________________________________
 ____________________________________________________
           _____ [ Vmess gRPC (CDN) ] _____
 ____________________________________________________
-- name: Vmess-$user
+- name: vmess-$user
   server: $domain
   port: 443
   type: vmess
