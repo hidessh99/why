@@ -54,13 +54,13 @@ echo -e "      ${GB}≈ Total: $ttoday           ≈ Total: $tmon${NC} "
 echo -e "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" | lolcat -a -d 10 
 echo -e "                 ${WB}━━━━━ [ Menu Xray ] ━━━━━${NC}                "
 echo -e "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" | lolcat -a -d 10 
-echo -e "  ${MB}[1]${NC} ${YB}Menu Vmess${NC}            "
-echo -e "  ${MB}[2]${NC} ${YB}Menu Vless${NC}            "
-echo -e "  ${MB}[3]${NC} ${YB}Menu Trojan${NC}           "
-echo -e "  ${MB}[4]${NC} ${YB}Menu Shadowsocks${NC}      "
-echo -e "  ${MB}[5]${NC} ${YB}Menu Shadowsocks 2022${NC} "
-echo -e "  ${MB}[6]${NC} ${YB}Menu Socks5${NC}           "
-echo -e "  ${MB}[7]${NC} ${YB}Menu All Xray${NC}         "
+echo -e "  ${MB}[1]${NC} ${YB}Vmess Menu${NC}            "
+echo -e "  ${MB}[2]${NC} ${YB}Vless Menu${NC}            "
+echo -e "  ${MB}[3]${NC} ${YB}Trojan Menu${NC}           "
+echo -e "  ${MB}[4]${NC} ${YB}Shadowsocks Menu${NC}      "
+echo -e "  ${MB}[5]${NC} ${YB}Shadowsocks 2022 Menu${NC} "
+echo -e "  ${MB}[6]${NC} ${YB}Socks5 Menu${NC}           "
+echo -e "  ${MB}[7]${NC} ${YB}All Xray Menu${NC}         "
 echo -e "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" | lolcat -a -d 10 
 echo -e "                  ${WB}━━━━━ [ Utility ] ━━━━━${NC}                 "
 echo -e "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" | lolcat -a -d 10 
