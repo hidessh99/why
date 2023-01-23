@@ -33,28 +33,34 @@ DATE=$(date -R | cut -d " " -f -4)
 MYIP=$(curl -sS ipv4.icanhazip.com)
 clear
 echo -e "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" | lolcat -a -d 10 
+echo -e ""
+echo -e "                  ━━━━━ [ XRAY SCRIPT WHXXYU] ━━━━━                 " | lolcat -a -d 10 
+echo -e ""
+echo -e "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" | lolcat -a -d 10 
+echo -e "      ${WB}NGINX STATUS :${NC} $status_nginx    ${WB}XRAY STATUS :${NC} $status_xray   "
+echo -e "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" | lolcat -a -d 10 
 echo -e "  ${YB}Service Provider${NC} ${WB}: $ISP"
 echo -e "  ${YB}Timezone${NC}         ${WB}: $WKT${NC}"
 echo -e "  ${YB}City${NC}             ${WB}: $CITY${NC}"
 echo -e "  ${YB}Date${NC}             ${WB}: $DATE${NC}"
 echo -e "  ${YB}Domain${NC}           ${WB}: $domain${NC}"
 echo -e "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" | lolcat -a -d 10 
-echo -e "      ${WB}NGINX STATUS :${NC} $status_nginx    ${WB}XRAY STATUS :${NC} $status_xray   "
+echo -e "            ${WB}━━━━━ [ Bandwidth Monitoring] ━━━━━${NC}           "
 echo -e "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" | lolcat -a -d 10 
 echo -e "    ${GB}Today ($DATE)     Monthly ($(date +%B/%Y))${NC}  "
 echo -e "     ${GB}↓↓ Down: $dtoday          ↓↓ Down: $dmon${NC}    "
 echo -e "     ${GB}↑↑ Up  : $utoday          ↑↑ Up  : $umon${NC}    "
 echo -e "     ${GB}≈ Total: $ttoday          ≈ Total: $tmon${NC}   "
 echo -e "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" | lolcat -a -d 10 
-echo -e "                 ${WB}━━━━━ [ Xray Menu ] ━━━━━${NC}               "
+echo -e "                 ${WB}━━━━━ [ Menu Xray ] ━━━━━${NC}               "
 echo -e "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" | lolcat -a -d 10 
-echo -e "  ${MB}[1]${NC} ${YB}Vmess Menu${NC}            "
-echo -e "  ${MB}[2]${NC} ${YB}Vless Menu${NC}            "
-echo -e "  ${MB}[3]${NC} ${YB}Trojan Menu${NC}           "
-echo -e "  ${MB}[4]${NC} ${YB}Shadowsocks Menu${NC}      "
-echo -e "  ${MB}[5]${NC} ${YB}Shadowsocks 2022 Menu${NC} "
-echo -e "  ${MB}[6]${NC} ${YB}Socks5 Menu${NC}           "
-echo -e "  ${MB}[7]${NC} ${YB}All Xray Menu${NC}         "
+echo -e "  ${MB}[1]${NC} ${YB}Menu Vmess${NC}            "
+echo -e "  ${MB}[2]${NC} ${YB}Menu Vless${NC}            "
+echo -e "  ${MB}[3]${NC} ${YB}Menu Trojan${NC}           "
+echo -e "  ${MB}[4]${NC} ${YB}Menu Shadowsocks${NC}      "
+echo -e "  ${MB}[5]${NC} ${YB}Menu Shadowsocks 2022${NC} "
+echo -e "  ${MB}[6]${NC} ${YB}Menu Socks5${NC}           "
+echo -e "  ${MB}[7]${NC} ${YB}Menu All Xray${NC}         "
 echo -e "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" | lolcat -a -d 10 
 echo -e "                  ${WB}━━━━━ [ Utility ] ━━━━━${NC}                "
 echo -e "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" | lolcat -a -d 10 
