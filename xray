@@ -294,7 +294,7 @@ echo ""
 echo ""
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10   
 echo ""
-echo -e "                ${WB}PREMIUM SCRIPT BY WHXXYU${NC}"
+echo -e "                  ${WB}XRAY SCRIPT BY WHXXYU${NC}"
 echo ""
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
 echo -e "  ${WB}»»» Protocol Service «««  |  »»» Network Protocol «««${NC}  "
