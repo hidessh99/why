@@ -34,7 +34,7 @@ MYIP=$(curl -sS ipv4.icanhazip.com)
 clear
 echo -e "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" | lolcat -a -d 10 
 echo -e ""
-echo -e "                  ━━━━━ [ XRAY SCRIPT WHXXYU] ━━━━━                 " | lolcat -a -d 10 
+echo -e "             ${WB}━━━━━ [ XRAY SCRIPT WHXXYU] ━━━━━${NC}            " 
 echo -e ""
 echo -e "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" | lolcat -a -d 10 
 echo -e "      ${WB}NGINX STATUS :${NC} $status_nginx    ${WB}XRAY STATUS :${NC} $status_xray   "
@@ -52,7 +52,7 @@ echo -e "     ${GB}↓↓ Down: $dtoday          ↓↓ Down: $dmon${NC}    "
 echo -e "     ${GB}↑↑ Up  : $utoday          ↑↑ Up  : $umon${NC}    "
 echo -e "     ${GB}≈ Total: $ttoday          ≈ Total: $tmon${NC}   "
 echo -e "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" | lolcat -a -d 10 
-echo -e "                 ${WB}━━━━━ [ Menu Xray ] ━━━━━${NC}               "
+echo -e "                 ${WB}━━━━━ [ Menu Xray ] ━━━━━${NC}                "
 echo -e "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" | lolcat -a -d 10 
 echo -e "  ${MB}[1]${NC} ${YB}Menu Vmess${NC}            "
 echo -e "  ${MB}[2]${NC} ${YB}Menu Vless${NC}            "
@@ -62,7 +62,7 @@ echo -e "  ${MB}[5]${NC} ${YB}Menu Shadowsocks 2022${NC} "
 echo -e "  ${MB}[6]${NC} ${YB}Menu Socks5${NC}           "
 echo -e "  ${MB}[7]${NC} ${YB}Menu All Xray${NC}         "
 echo -e "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" | lolcat -a -d 10 
-echo -e "                  ${WB}━━━━━ [ Utility ] ━━━━━${NC}                "
+echo -e "                  ${WB}━━━━━ [ Utility ] ━━━━━${NC}                 "
 echo -e "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" | lolcat -a -d 10 
 echo -e "  ${MB}[8]${NC} ${YB}Log Create Account${NC}    "
 echo -e "  ${MB}[9]${NC} ${YB}Speedtest${NC}             "
