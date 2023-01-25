@@ -20,7 +20,7 @@ vless
 fi
 clear
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "                 Delete Vless Account               "
+echo -e "                 ${WB}Delete Vless Account${NC}               "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e " ${YB}User  Expired${NC}  "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
@@ -38,12 +38,12 @@ rm -rf /var/www/html/vless/vless-$user.txt
 rm -rf /user/log-vless-$user.txt
 systemctl restart xray
 clear
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
-echo -e "            ${WB}Vless Account Success Deleted${NC}           "
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
+echo -e "             ${WB}Vless Account Success Deleted${NC}           "
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e " ${YB}Client Name :${NC} $user"
 echo -e " ${YB}Expired On  :${NC} $exp"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 clear
