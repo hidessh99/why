@@ -40,7 +40,7 @@ rm -rf /user/log-ss2022-$user.txt
 systemctl restart xray
 clear
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "      ${WB}Shadowsocks 2022 Account Success${NC} Deleted${NC}      "
+echo -e "        ${WB}Shadowsocks 2022 Account Success Deleted${NC}      "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e " ${YB}Client Name :${NC} $user"
 echo -e " ${YB}Expired On  :${NC} $exp"
