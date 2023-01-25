@@ -11,24 +11,24 @@ clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^#÷ " "/usr/local/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 clear
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
-echo -e "               ${WB}Delete Socks5 Account${NC}                "
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
+echo -e "                ${WB}Delete Socks5 Account${NC}                "
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "  ${YB}You have no existing clients!${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
 socks
 fi
 clear
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
-echo -e "               ${WB}Delete Socks5 Account${NC}                "
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
+echo -e "                ${WB}Delete Socks5 Account${NC}                "
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e " ${YB}User  Expired${NC}  "
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 grep -E "^#÷ " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq
 echo ""
 echo -e "${YB}tap enter to go back${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 read -rp "Input Username : " user
 if [ -z $user ]; then
 trojan
@@ -39,12 +39,12 @@ rm -rf /var/www/html/socks5/socks5-$user.txt
 rm -rf /user/log-socks5-$user.txt
 systemctl restart xray
 clear
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
-echo -e "           ${WB}Socks5 Account Success Deleted${NC}           "
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
+echo -e "             ${WB}Socks5 Account Success Deleted${NC}           "
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e " ${YB}Client Name :${NC} $user"
 echo -e " ${YB}Expired On  :${NC} $exp"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 clear
