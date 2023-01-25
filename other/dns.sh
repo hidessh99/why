@@ -8,16 +8,16 @@ MB='\e[35;1m'
 CB='\e[35;1m'
 WB='\e[37;1m'
 clear
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 read -rp "Domain/Host: " -e host
 if [ -z $host ]; then
 echo -e "${YB}????${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
 dns
 else
 echo "DNS=$host" > /var/lib/dnsvps.conf
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "${YB}Dont Forget To Renew Cert${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
