@@ -8,9 +8,9 @@ MB='\e[35;1m'
 CB='\e[35;1m'
 WB='\e[37;1m'
 clear
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "              ${WB}━━━━━ [ Socks5 Menu ] ━━━━━${NC}               "
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e ""
 echo -e " ${MB}[1]${NC} ${YB}Create Account Socks5${NC} "
 echo -e " ${MB}[2]${NC} ${YB}Trial Account Socks5${NC} "
@@ -20,7 +20,7 @@ echo -e " ${MB}[5]${NC} ${YB}Check User Login${NC} "
 echo -e ""
 echo -e " ${MB}[0]${NC} ${YB}Back To Menu${NC}"
 echo -e ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e ""
 read -p " Select menu :  "  opt
 echo -e ""
