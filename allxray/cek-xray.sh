@@ -11,7 +11,7 @@ clear
 echo -n >/tmp/other.txt
 data=($(cat /usr/local/etc/xray/config.json | grep '^#&@' | cut -d ' ' -f 2 | sort | uniq))
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10
-echo -e "             ${WB}All Xray User Login Account${NC}              "
+echo -e "              ${WB}All Xray User Login Account${NC}              "
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10
 for akun in "${data[@]}"; do
 if [[ -z "$akun" ]]; then
