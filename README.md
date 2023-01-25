@@ -1,4 +1,4 @@
 #why-xray
 
-install 
+install = 
 bash -c "$(wget -qO- s.id/why-xray)"
