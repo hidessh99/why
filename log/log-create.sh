@@ -8,9 +8,9 @@ MB='\e[35;1m'
 CB='\e[35;1m'
 WB='\e[37;1m'
 clear
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
-echo -e "                  ${WB}Log Create User${NC}                   "
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
+echo -e "                   ${WB}Log Create User${NC}                   "
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e ""
 echo -e " ${MB}[1]${NC} ${YB}Log Vmess Account${NC} "
 echo -e " ${MB}[2]${NC} ${YB}Log Vless Account${NC} "
@@ -22,7 +22,7 @@ echo -e " ${MB}[7]${NC} ${YB}Log All Xray Account${NC}"
 echo -e ""
 echo -e " ${MB}[0]${NC} ${YB}Back To Menu${NC}"
 echo -e ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat -a -d 10 
+echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e ""
 read -p " Select menu :  "  opt
 echo -e ""
