@@ -1,4 +1,7 @@
+#!/bin/bash
+# ANSI Escape Code
 NC='\e[0m'
+## Foreground
 DEFBOLD='\e[39;1m'
 RB='\e[31;1m'
 GB='\e[32;1m'
@@ -7,24 +10,35 @@ BB='\e[34;1m'
 MB='\e[35;1m'
 CB='\e[35;1m'
 WB='\e[37;1m'
+
+# Source ANSI
+# https://ansi.gabebanks.net/
+
 xray_service=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 nginx_service=$(systemctl status nginx | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-if [[ $xray_service == "running" ]]; then
-status_xray="${GB}[ ON ]${NC}"
+# STATUS SERVICE XRAY 
+if [[ $xray_service == "running" ]]; then 
+   status_xray="${GB}[ ON ]${NC}"
 else
-status_xray="${RB}[ OFF ]${NC}"
+   status_xray="${RB}[ OFF ]${NC}"
 fi
-if [[ $nginx_service == "running" ]]; then
-status_nginx="${GB}[ ON ]${NC}"
+# STATUS SERVICE NGINX 
+if [[ $nginx_service == "running" ]]; then 
+   status_nginx="${GB}[ ON ]${NC}"
 else
-status_nginx="${RB}[ OFF ]${NC}"
+   status_nginx="${RB}[ OFF ]${NC}"
 fi
+
+#Download/Upload today
 dtoday="$(vnstat | grep today | awk '{print $2" "substr ($3, 1, 3)}')"
 utoday="$(vnstat | grep today | awk '{print $5" "substr ($6, 1, 3)}')"
 ttoday="$(vnstat | grep today | awk '{print $8" "substr ($9, 1, 3)}')"
+
+#Download/Upload current month
 dmon="$(vnstat -m | grep `date +%G-%m` | awk '{print $2" "substr ($3, 1 ,3)}')"
 umon="$(vnstat -m | grep `date +%G-%m` | awk '{print $5" "substr ($6, 1 ,3)}')"
 tmon="$(vnstat -m | grep `date +%G-%m` | awk '{print $8" "substr ($9, 1 ,3)}')"
+
 domain=$(cat /usr/local/etc/xray/domain)
 ISP=$(cat /usr/local/etc/xray/org)
 CITY=$(cat /usr/local/etc/xray/city)
