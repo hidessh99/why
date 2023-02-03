@@ -1,6 +1,8 @@
 domain=$(cat /usr/local/etc/xray/domain)
 user=trial-`echo $RANDOM | head -c4`
 uuid=$(cat /proc/sys/kernel/random/uuid)
+pathtrojan=$(cat /usr/local/hidessh/trojan.txt)
+pathtrojangprc=$(cat /usr/local/hidessh/trojangprc.txt)
 masaaktif=1
 echo ""
 echo ""
@@ -9,9 +11,9 @@ sed -i '/#trojan$/a\#& '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
 sed -i '/#trojan-grpc$/a\#& '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
-trojanlink1="trojan://$uuid@$domain:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
-trojanlink2="trojan://${uuid}@$domain:80?path=/trojan&security=none&host=$domain&type=ws#$user"
-trojanlink3="trojan://${uuid}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user"
+trojanlink1="trojan://$uuid@$domain:443?path=$pathtrojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
+trojanlink2="trojan://${uuid}@$domain:80?path=$pathtrojan&security=none&host=$domain&type=ws#$user"
+trojanlink3="trojan://${uuid}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=$pathtrojangrpc&sni=$domain#$user"
 ISP=$(cat /usr/local/etc/xray/org)
 CITY=$(cat /usr/local/etc/xray/city)
 cat > /var/www/html/trojan/trojan-$user.txt << END
@@ -73,11 +75,11 @@ ____________________________________________________
 ____________________________________________________
         _____ [ Link Xray / Trojan ] _____
 ____________________________________________________
-Link TLS  : trojan://$uuid@$domain:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user
+Link TLS  : trojan://$uuid@$domain:443?path=$pathtrojan&security=tls&host=$domain&type=ws&sni=$domain#$user
 ____________________________________________________
-Link NTLS : trojan://${uuid}@$domain:80?path=/trojan&security=none&host=$domain&type=ws#$user
+Link NTLS : trojan://${uuid}@$domain:80?path=$pathtrojan&security=none&host=$domain&type=ws#$user
 ____________________________________________________
-Link gRPC : trojan://${uuid}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user
+Link gRPC : trojan://${uuid}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=$pathtrojangrpc&sni=$domain#$user
 ____________________________________________________
 END
 systemctl restart xray

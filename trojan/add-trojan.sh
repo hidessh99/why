@@ -9,6 +9,8 @@ CB='\e[35;1m'
 WB='\e[37;1m'
 clear
 domain=$(cat /usr/local/etc/xray/domain)
+pathtrojan=$(cat /usr/local/hidessh/trojan.txt)
+pathtrojangprc=$(cat /usr/local/hidessh/trojangprc.txt)
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "                  ${WB}Add Trojan Account${NC}                "
@@ -33,9 +35,9 @@ sed -i '/#trojan$/a\#& '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
 sed -i '/#trojan-grpc$/a\#& '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
-trojanlink1="trojan://$uuid@$domain:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
-trojanlink2="trojan://${uuid}@$domain:80?path=/trojan&security=none&host=$domain&type=ws#$user"
-trojanlink3="trojan://${uuid}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user"
+trojanlink1="trojan://$uuid@$domain:443?path=$pathtrojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
+trojanlink2="trojan://${uuid}@$domain:80?path=$pathtrojan&security=none&host=$domain&type=ws#$user"
+trojanlink3="trojan://${uuid}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=$pathtrojangrpc&sni=$domain#$user"
 ISP=$(cat /usr/local/etc/xray/org)
 CITY=$(cat /usr/local/etc/xray/city)
 cat > /var/www/html/trojan/trojan-$user.txt << END
@@ -54,8 +56,8 @@ Alt Port TLS  : 2053, 2083, 2087, 2096, 8443
 Alt Port NTLS : 8080, 8880, 2052, 2082, 2086, 2095
 Password      : $uuid
 Network       : Websocket, gRPC
-Path          : /trojan
-ServiceName   : trojan-grpc
+Path          : $pathtrojan
+ServiceName   : $pathtrojangrpc
 Alpn          : h2, http/1.1
 ____________________________________________________
 Expired On    : $exp
@@ -75,7 +77,7 @@ ____________________________________________________
   skip-cert-verify: true
   udp: true
   ws-opts:
-    path: /trojan
+    path: $pathtrojan
     headers:
       Host: $domain
 
@@ -93,17 +95,17 @@ ____________________________________________________
   skip-cert-verify: true
   udp: true
   grpc-opts:
-    grpc-service-name: "trojan-grpc"
+    grpc-service-name: "$pathtrojangrpc"
 
 
 ____________________________________________________
         _____ [ Link Xray / Trojan ] _____
 ____________________________________________________
-Link TLS  : trojan://$uuid@$domain:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user
+Link TLS  : trojan://$uuid@$domain:443?path=$pathtrojan&security=tls&host=$domain&type=ws&sni=$domain#$user
 ____________________________________________________
-Link NTLS : trojan://${uuid}@$domain:80?path=/trojan&security=none&host=$domain&type=ws#$user
+Link NTLS : trojan://${uuid}@$domain:80?path=$pathtrojan&security=none&host=$domain&type=ws#$user
 ____________________________________________________
-Link gRPC : trojan://${uuid}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user
+Link gRPC : trojan://${uuid}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=$pathtrojangrpc&sni=$domain#$user
 ____________________________________________________
 END
 systemctl restart xray
@@ -122,8 +124,8 @@ echo -e "Alt Port TLS  : 2053, 2083, 2087, 2096, 8443" | tee -a /user/log-trojan
 echo -e "Alt Port NTLS : 8080, 8880, 2052, 2082, 2086, 2095" | tee -a /user/log-trojan-$user.txt
 echo -e "Password      : $uuid" | tee -a /user/log-trojan-$user.txt
 echo -e "Network       : Websocket, gRPC" | tee -a /user/log-trojan-$user.txt
-echo -e "Path          : /trojan" | tee -a /user/log-trojan-$user.txt
-echo -e "ServiceName   : trojan-grpc" | tee -a /user/log-trojan-$user.txt
+echo -e "Path          : $pathtrojan" | tee -a /user/log-trojan-$user.txt
+echo -e "ServiceName   : $pathtrojangrpc" | tee -a /user/log-trojan-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-trojan-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-trojan-$user.txt
 echo -e "Link TLS      : $trojanlink1" | tee -a /user/log-trojan-$user.txt

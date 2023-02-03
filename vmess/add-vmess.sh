@@ -9,6 +9,8 @@ CB='\e[35;1m'
 WB='\e[37;1m'
 clear
 domain=$(cat /usr/local/etc/xray/domain)
+pathvmess=$(cat /usr/local/hidessh/vmess.txt)
+pathvmessgprc=$(cat /usr/local/hidessh/vmessgprc.txt)
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "                   ${WB}Add Vmess Account${NC}                  "
@@ -42,7 +44,7 @@ vlink1=`cat << EOF
 "id": "$uuid",
 "aid": "0",
 "net": "ws",
-"path": "/vmess",
+"path": "$pathvmess",
 "type": "none",
 "host": "$domain",
 "tls": "tls"
@@ -57,7 +59,7 @@ vlink2=`cat << EOF
 "id": "$uuid",
 "aid": "0",
 "net": "ws",
-"path": "/vmess",
+"path": "$pathvmess",
 "type": "none",
 "host": "$domain",
 "tls": "none"
@@ -72,7 +74,7 @@ vlink3=`cat << EOF
 "id": "$uuid",
 "aid": "0",
 "net": "grpc",
-"path": "vmess-grpc",
+"path": "$pathvmessgprc",
 "type": "none",
 "host": "$domain",
 "tls": "tls"
@@ -101,8 +103,8 @@ id            : $uuid
 AlterId       : 0
 Security      : auto
 Network       : Websocket
-Path          : /vmess /(multipath)
-ServiceName   : vmess-grpc
+Path          : $pathvmess /(multipath)
+ServiceName   : $pathvmessgprc
 Alpn          : h2, http/1.1
 ____________________________________________________
 Expired On    : $exp
@@ -110,7 +112,7 @@ ____________________________________________________
 
 
 ____________________________________________________
-        _____ [ Vmess WS (CDN) TLS ] _____                 
+        _____ [ Vmess WS SSL ] _____                 
 ____________________________________________________
 - name: vmess-$user
   type: vmess
@@ -125,13 +127,13 @@ ____________________________________________________
   servername: $domain
   network: ws
   ws-opts:
-    path: /vmess /(multipath)
+    path: $pathvmess /(multipath)
     headers:
       Host: $domain
 
 
 ____________________________________________________
-           _____ [ Vmess WS (CDN) ] _____
+           _____ [ Vmess NON TLSS ] _____
 ____________________________________________________
 - name: vmess-$user
   type: vmess
@@ -146,7 +148,7 @@ ____________________________________________________
   servername: $domain
   network: ws
   ws-opts:
-    path: /vmess /(multipath)
+    path: $pathvmess /(multipath)
     headers:
       Host: $domain
 
@@ -166,7 +168,7 @@ ____________________________________________________
   servername: $domain
   skip-cert-verify: true
   grpc-opts:
-    grpc-service-name: "vmess-grpc"
+    grpc-service-name: "$pathvmess"
 
 
 ____________________________________________________
@@ -197,8 +199,8 @@ echo -e "id            : $uuid" | tee -a /user/log-vmess-$user.txt
 echo -e "AlterId       : 0" | tee -a /user/log-vmess-$user.txt
 echo -e "Security      : auto" | tee -a /user/log-vmess-$user.txt
 echo -e "Network       : Websocket" | tee -a /user/log-vmess-$user.txt
-echo -e "Path          : /vmess /(multipath)" | tee -a /user/log-vmess-$user.txt
-echo -e "ServiceName   : vmess-grpc" | tee -a /user/log-vmess-$user.txt
+echo -e "Path          : $pathvmess /(multipath)" | tee -a /user/log-vmess-$user.txt
+echo -e "ServiceName   : $pathvmessgprc" | tee -a /user/log-vmess-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-vmess-$user.txt
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /user/log-vmess-$user.txt
 echo -e "Link TLS      : $vmesslink1" | tee -a /user/log-vmess-$user.txt
